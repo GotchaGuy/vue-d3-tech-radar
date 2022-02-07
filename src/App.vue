@@ -1,7 +1,7 @@
 <template>
   <div class="main-section grid grid-cols-10">
 <!--    left section-->
-    <section class="col-span-4 p-5 flex flex-col justify-between">
+    <section class="col-span-4 p-5 flex flex-col justify-between relative">
       <div>
         <h2 class="text-4xl font-light py-2"><span class="font-bold">WEB 3</span> Technology radar</h2>
         <p class="w-96 inline-block text-sm font-light pb-5"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -121,7 +121,10 @@
 <!--    right section-->
     <section class="col-span-6 p-5">
 
-
+    <div class="bg-gray-700 p-3 rounded-lg text-right inline-block absolute bottom-8 right-8">
+      <h3 class="text-base font-bold">Made with <span class="text-red-500">&hearts;</span> by 3327</h3>
+      <span class="text-sm font-bold text-gray-500">Web 3 tech vanguards</span>
+    </div>
     </section>
   </div>
 </template>
