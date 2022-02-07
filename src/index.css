@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/**, *::before, *::after {*/
-/*  box-sizing: border-box;*/
-/*}*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -17,14 +17,14 @@ body {
   margin-top: 0;
 }
 
-.section {
+.main-section {
   min-height: 100vh;
   /*margin: 0!important;*/
   padding: 10px;
   background: #242429;
 }
 
-p, h1, h2, h3 {
+p, h1, h2, h3, div {
   color: #FFFFFF;
 }
 

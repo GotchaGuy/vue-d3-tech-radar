@@ -2,7 +2,16 @@ module.exports = {
     content: ["./index.html",
         "./src/**/*.{html,js}",],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                'mvp-gray-dark' : '#242429',
+                'mvp-gray-light' : '#333338',
+                'mvp-green' : '#8aedb1',
+                'mvp-blue' : '#d8fefe',
+                'mvp-orange' : '#ffc895',
+                'mvp-purple' : '#db6af9',
+            }
+        },
     },
     plugins: [],
 }
