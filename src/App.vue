@@ -121,7 +121,7 @@
     <!--    right section-->
     <section class="col-span-6 p-5">
 
-      <!--      <Radar/>-->
+<!--            <Radar :radarData="radarVisualization"/>-->
       <Grid :radarData="radarVisualization"/>
       <!--      <Quadrant/>-->
 
@@ -134,11 +134,13 @@
 </template>
 
 <script>
+// import Radar from './components/RadarComponent.vue'
 import Grid from './components/GridComponent.vue'
 
 export default {
   name: 'App',
   components: {
+    // Radar,
     Grid
   }, data() {
     return {
@@ -154,10 +156,10 @@ export default {
         },
         title: "WEB3 Technology Radar",
         quadrants: [
-          {name: "Tools", color: "#8aedb1", tl: "mvp-green"},
-          {name: "Platforms", color: "#d8fefe"},
-          {name: "Methods & patterns", color: "#ffc895"},
-          {name: "Languages & Frameworks", color: "#db6af9"},
+          {name: "Tools", color: "#8aedb1", tw: "mvp-green"},
+          {name: "Platforms", color: "#d8fefe", tw: "mvp-blue"},
+          {name: "Methods & patterns", color: "#ffc895", tw: "mvp-orange"},
+          {name: "Languages & Frameworks", color: "#db6af9", tw: "mvp-purple"},
         ],
         rings: [
           {name: "Adopt"},
