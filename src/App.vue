@@ -125,7 +125,7 @@
       <Grid :radarData="radarVisualization"/>
       <!--      <Quadrant/>-->
 
-      <div class="bg-gray-700 p-3 rounded-lg text-right inline-block absolute bottom-8 right-8">
+      <div class="bg-gray-700 p-3 rounded-lg text-right inline-block fixed bottom-8 right-8">
         <h3 class="text-base font-bold">Made with <span class="text-red-500">&hearts;</span> by 3327</h3>
         <span class="text-sm font-bold text-gray-500">Web 3 tech vanguards</span>
       </div>
@@ -154,16 +154,16 @@ export default {
         },
         title: "WEB3 Technology Radar",
         quadrants: [
-          {name: "Tools", color: "#8aedb1"},
+          {name: "Tools", color: "#8aedb1", tl: "mvp-green"},
           {name: "Platforms", color: "#d8fefe"},
           {name: "Methods & patterns", color: "#ffc895"},
           {name: "Languages & Frameworks", color: "#db6af9"},
         ],
         rings: [
-          {name: "ADOPT"},
-          {name: "TRIAL"},
-          {name: "ASSESS"},
-          {name: "HOLD"}
+          {name: "Adopt"},
+          {name: "Trial"},
+          {name: "Assess"},
+          {name: "Hold"}
         ],
         print_layout: true,
         // zoomed_quadrant: 0,
@@ -173,7 +173,8 @@ export default {
           {
             "quadrant": 3,
             "ring": 2,
-            "label": "AWS Athena",
+            "label": "Item with long name",
+            // "label": "AWS Athena",
             "active": true,
             "moved": 0
           },
@@ -198,20 +199,20 @@ export default {
             "active": true,
             "moved": 0
           },
-          {
-            "quadrant": 3,
-            "ring": 0,
-            "label": "Airflow",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 3,
-            "ring": 0,
-            "label": "Databricks",
-            "active": true,
-            "moved": 0
-          },
+          // {
+          //   "quadrant": 3,
+          //   "ring": 0,
+          //   "label": "Airflow",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 3,
+          //   "ring": 0,
+          //   "label": "Databricks",
+          //   "active": true,
+          //   "moved": 0
+          // },
           {
             "quadrant": 3,
             "ring": 1,
@@ -256,20 +257,20 @@ export default {
             "active": true,
             "moved": 0
           },
-          {
-            "quadrant": 2,
-            "ring": 0,
-            "label": "AWS test",
-            "active": true,
-            "moved": 1
-          },
-          {
-            "quadrant": 2,
-            "ring": 0,
-            "label": "AWS S3",
-            "active": true,
-            "moved": 0
-          },
+          // {
+          //   "quadrant": 2,
+          //   "ring": 0,
+          //   "label": "AWS test",
+          //   "active": true,
+          //   "moved": 1
+          // },
+          // {
+          //   "quadrant": 2,
+          //   "ring": 0,
+          //   "label": "AWS S3",
+          //   "active": true,
+          //   "moved": 0
+          // },
           {
             "quadrant": 2,
             "ring": 3,
@@ -292,20 +293,20 @@ export default {
             "active": true,
             "moved": 0
           },
-          {
-            "quadrant": 2,
-            "ring": 3,
-            "label": "Consul",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 2,
-            "ring": 3,
-            "label": "CouchBase",
-            "active": true,
-            "moved": 0
-          },
+          // {
+          //   "quadrant": 2,
+          //   "ring": 3,
+          //   "label": "Consul",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 2,
+          //   "ring": 3,
+          //   "label": "CouchBase",
+          //   "active": true,
+          //   "moved": 0
+          // },
           {
             "quadrant": 2,
             "ring": 2,
@@ -335,13 +336,13 @@ export default {
             "active": true,
             "moved": 0
           },
-          {
-            "quadrant": 2,
-            "ring": 3,
-            "label": "HBase",
-            "active": true,
-            "moved": 0
-          },
+          // {
+          //   "quadrant": 2,
+          //   "ring": 3,
+          //   "label": "HBase",
+          //   "active": true,
+          //   "moved": 0
+          // },
           {
             "quadrant": 2,
             "ring": 1,
@@ -349,57 +350,57 @@ export default {
             "active": true,
             "moved": 0
           },
-          {
-            "quadrant": 2,
-            "ring": 3,
-            "label": "Hazelcast",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 2,
-            "ring": 3,
-            "label": "Memcached",
-            "active": true,
-            "moved": 1
-          },
-          {
-            "quadrant": 2,
-            "ring": 3,
-            "label": "MongoDB",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 2,
-            "ring": 3,
-            "label": "MySQL",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 2,
-            "ring": 3,
-            "label": "Oracle DB",
-            "active": true,
-            "moved": 1
-          },
-          {
-            "quadrant": 2,
-            "ring": 0,
-            "label": "PostgreSQL",
-            "link": "",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 2,
-            "ring": 0,
-            "label": "Redis",
-            "link": "",
-            "active": true,
-            "moved": 0
-          },
+          // {
+          //   "quadrant": 2,
+          //   "ring": 3,
+          //   "label": "Hazelcast",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 2,
+          //   "ring": 3,
+          //   "label": "Memcached",
+          //   "active": true,
+          //   "moved": 1
+          // },
+          // {
+          //   "quadrant": 2,
+          //   "ring": 3,
+          //   "label": "MongoDB",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 2,
+          //   "ring": 3,
+          //   "label": "MySQL",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 2,
+          //   "ring": 3,
+          //   "label": "Oracle DB",
+          //   "active": true,
+          //   "moved": 1
+          // },
+          // {
+          //   "quadrant": 2,
+          //   "ring": 0,
+          //   "label": "PostgreSQL",
+          //   "link": "",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 2,
+          //   "ring": 0,
+          //   "label": "Redis",
+          //   "link": "",
+          //   "active": true,
+          //   "moved": 0
+          // },
           {
             "quadrant": 2,
             "ring": 2,
@@ -421,27 +422,27 @@ export default {
             "active": true,
             "moved": 0
           },
-          {
-            "quadrant": 2,
-            "ring": 0,
-            "label": "etcd",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 1,
-            "ring": 0,
-            "label": "AWS CloudFormation",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 1,
-            "ring": 0,
-            "label": "AWS CloudFront",
-            "active": true,
-            "moved": 0
-          },
+          // {
+          //   "quadrant": 2,
+          //   "ring": 0,
+          //   "label": "etcd",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 1,
+          //   "ring": 0,
+          //   "label": "AWS CloudFormation",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 1,
+          //   "ring": 0,
+          //   "label": "AWS CloudFront",
+          //   "active": true,
+          //   "moved": 0
+          // },
           {
             "quadrant": 1,
             "ring": 1,
@@ -456,36 +457,36 @@ export default {
             "active": true,
             "moved": 1
           },
-          {
-            "quadrant": 1,
-            "ring": 0,
-            "label": "Docker",
-            "link": "",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 1,
-            "ring": 0,
-            "label": "Kubernetes",
-            "link": "",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 1,
-            "ring": 0,
-            "label": "Nginx",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 1,
-            "ring": 0,
-            "label": "OpenTracing",
-            "active": true,
-            "moved": 0
-          },
+          // {
+          //   "quadrant": 1,
+          //   "ring": 0,
+          //   "label": "Docker",
+          //   "link": "",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 1,
+          //   "ring": 0,
+          //   "label": "Kubernetes",
+          //   "link": "",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 1,
+          //   "ring": 0,
+          //   "label": "Nginx",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 1,
+          //   "ring": 0,
+          //   "label": "OpenTracing",
+          //   "active": true,
+          //   "moved": 0
+          // },
           {
             "quadrant": 1,
             "ring": 3,
@@ -547,38 +548,38 @@ export default {
             "active": true,
             "moved": 0
           },
-          {
-            "quadrant": 0,
-            "ring": 0,
-            "label": "Java",
-            "link": "",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 0,
-            "ring": 0,
-            "label": "JavaScript",
-            "link": "",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 0,
-            "ring": 0,
-            "label": "Kotlin",
-            "link": "",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 0,
-            "ring": 0,
-            "label": "OpenAPI (Swagger)",
-            "link": "",
-            "active": true,
-            "moved": 0
-          },
+          // {
+          //   "quadrant": 0,
+          //   "ring": 0,
+          //   "label": "Java",
+          //   "link": "",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 0,
+          //   "ring": 0,
+          //   "label": "JavaScript",
+          //   "link": "",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 0,
+          //   "ring": 0,
+          //   "label": "Kotlin",
+          //   "link": "",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 0,
+          //   "ring": 0,
+          //   "label": "OpenAPI (Swagger)",
+          //   "link": "",
+          //   "active": true,
+          //   "moved": 0
+          // },
           {
             "quadrant": 0,
             "ring": 0,
@@ -602,30 +603,30 @@ export default {
             "active": true,
             "moved": 0
           },
-          {
-            "quadrant": 0,
-            "ring": 0,
-            "label": "Scala",
-            "link": "",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 0,
-            "ring": 0,
-            "label": "Swift",
-            "link": "",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 0,
-            "ring": 0,
-            "label": "TypeScript",
-            "link": "",
-            "active": true,
-            "moved": 0
-          },
+          // {
+          //   "quadrant": 0,
+          //   "ring": 0,
+          //   "label": "Scala",
+          //   "link": "",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 0,
+          //   "ring": 0,
+          //   "label": "Swift",
+          //   "link": "",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 0,
+          //   "ring": 0,
+          //   "label": "TypeScript",
+          //   "link": "",
+          //   "active": true,
+          //   "moved": 0
+          // },
           {
             "quadrant": 3,
             "ring": 1,
@@ -640,13 +641,13 @@ export default {
             "active": true,
             "moved": 0
           },
-          {
-            "quadrant": 3,
-            "ring": 0,
-            "label": "AWS SQS",
-            "active": true,
-            "moved": 0
-          },
+          // {
+          //   "quadrant": 3,
+          //   "ring": 0,
+          //   "label": "AWS SQS",
+          //   "active": true,
+          //   "moved": 0
+          // },
           {
             "quadrant": 3,
             "ring": 3,
@@ -661,22 +662,22 @@ export default {
             "active": true,
             "moved": 0
           },
-          {
-            "quadrant": 3,
-            "ring": 0,
-            "label": "Kafka",
-            "link": "",
-            "active": true,
-            "moved": 0
-          },
-          {
-            "quadrant": 3,
-            "ring": 0,
-            "label": "Nakadi",
-            "link": "",
-            "active": true,
-            "moved": 0
-          },
+          // {
+          //   "quadrant": 3,
+          //   "ring": 0,
+          //   "label": "Kafka",
+          //   "link": "",
+          //   "active": true,
+          //   "moved": 0
+          // },
+          // {
+          //   "quadrant": 3,
+          //   "ring": 0,
+          //   "label": "Nakadi",
+          //   "link": "",
+          //   "active": true,
+          //   "moved": 0
+          // },
           {
             "quadrant": 3,
             "ring": 1,
