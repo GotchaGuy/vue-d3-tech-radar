@@ -18,7 +18,7 @@
         </svg>
       </button>
     </div>
-    <h2 class="text-5xl font-bold"> zk-SNARKs</h2>
+    <h2 class="text-5xl font-bold"> {{item.label}} </h2>
     <div class="flex justify-start py-3">
       <div class="flex align-middle justify-center items-center py-1 px-2 mr-2 rounded-full hover:bg-mvp-gray-light">
         <svg class="inline-block mr-2" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
@@ -113,10 +113,9 @@ export default {
     }
   },
   mounted() {
-    this.emitter.on("toggle-modal", modalDisplay => {
-      this.displayed = modalDisplay;
-    }, item => {
-      this.item = item;
+    this.emitter.on("toggle-modal", (data) => {
+      this.displayed = data.displayed;
+      this.item = data.item;
     });
   },
   methods: {

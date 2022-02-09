@@ -7,7 +7,7 @@
           <h3 class="text-base font-bold capitalize">{{ ring.name }}</h3>
         </div>
         <ul class="ring-list">
-          <li v-for="(ringItem, j) in getRingEntries(radarData.entries, i)" @click="toggleModal(ringItem[j])"
+          <li v-for="(ringItem, j) in getRingEntries(radarData.entries, i)" @click="toggleModal(ringItem, i, j)"
               class="ring-item p-2 my-0.5 bg-gray-800 bg-opacity-40 text-base font-light text-white hover:bg-mvp-gray-darker rounded-md flex align-middle" :key="j">
 <!--            <svg class="inline-block mx-2 opacity-100" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">-->
 <!--              <path-->
@@ -36,7 +36,10 @@ export default {
   data() {
     return {
       modalDisplay: false,
-      currentItemId: "",
+      currentItem: {
+        i: "",
+        j: ""
+      },
     }
   },
   mounted() {
@@ -52,10 +55,19 @@ export default {
       }
       return ringEntries;
     },
-    toggleModal(item) {
+    toggleModal(item, i, j) {
       // when we connect the frontend to the db, add an if that will close modal if click on same item, load diff data on modal if click on diff item
+      if (this.currentItem.i === "") {
+      this.currentItem.i = i;
+      this.currentItem.j = j;
+      }
+      if (this.currentItem.j === j && this.currentItem.i === i) {
       this.modalDisplay = !this.modalDisplay;
-      this.emitter.emit("toggle-modal", this.modalDisplay, item);
+      }
+      this.emitter.emit("toggle-modal", {
+        displayed:this.modalDisplay,
+        item: item
+      });
     },
   },
 
