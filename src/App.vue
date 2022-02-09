@@ -1,29 +1,29 @@
 <template>
   <div class="main-section grid grid-cols-10">
     <!--    left section-->
-    <section class="col-span-4 p-5 flex flex-col justify-between relative">
+    <section class="col-span-4 p-6 flex flex-col justify-between relative">
       <div>
-        <h2 class="text-4xl font-light py-2"><span class="font-bold">WEB 3</span> Technology radar</h2>
+        <h2 class="text-4xl font-light pb-2"><span class="font-bold">WEB 3</span> Technology radar</h2>
         <p class="w-96 inline-block text-sm font-light pb-5"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Nam a congue elit. Maecenas ultrices lectus et eros mollis eleifend. Sed a nibh felis. Sed pulvinar, enim vel
           elementum vehicula, metus nulla commodo erat, quis posuere diam augue non nisl. </p>
         <div class="display-type-container">
           <div class="w-96 display-type-inner rounded-full inline-block">
-            <button class="align-middle w-1/3 button filter-button rounded-full filter-button-active">
+            <button class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full filter-button-active border-2 border-transparent hover:border-white">
               <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
                 <path
                     d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
               </svg>
               <span class="leading-6 text-base font-bold"> Radar </span>
             </button>
-            <button class="align-middle w-1/3 button filter-button rounded-full">
+            <button class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full  border-2 border-transparent hover:border-white">
               <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
                 <path
                     d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
               </svg>
               <span class="leading-6 text-base font-bold"> Grid </span>
             </button>
-            <button class="align-middle w-1/3 button filter-button rounded-full">
+            <button class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full  border-2 border-transparent hover:border-white">
               <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
                 <path
                     d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
@@ -65,7 +65,7 @@
           </div>
           <ul class="category-list pb-4">
             <li class="category-item-container flex justify-between pb-1">
-              <span class="category-item w-full text-sm font-light">Tools</span>
+              <span class="category-item w-full text-sm font-light">New or highlight</span>
               <div class="category-color rounded-full pr-1">
                 <svg class="inline-block text-white" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                      viewBox="0 0 24 24">
@@ -75,7 +75,7 @@
               </div>
             </li>
             <li class="category-item-container flex justify-between">
-              <span class="category-item w-full text-sm font-light">Platforms</span>
+              <span class="category-item w-full text-sm font-light">Moved inside</span>
               <div class="category-color rounded-full pr-1">
                 <svg class="inline-block text-white" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                      viewBox="0 0 24 24">
@@ -85,7 +85,7 @@
               </div>
             </li>
             <li class="category-item-container flex justify-between">
-              <span class="category-item w-full text-sm font-light">Methods & Patterns</span>
+              <span class="category-item w-full text-sm font-light">Moved outside</span>
               <div class="category-color rounded-full pr-1">
                 <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                   <path color="white"
@@ -94,7 +94,7 @@
               </div>
             </li>
             <li class="category-item-container flex justify-between">
-              <span class="category-item w-full text-sm font-light">Languages & Frameworks</span>
+              <span class="category-item w-full text-sm font-light">No change</span>
               <div class="category-color rounded-full pr-1 text-white">
                 <svg class="inline-block text-white" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                      viewBox="0 0 24 24">
@@ -118,18 +118,21 @@
         </div>
       </div>
     </section>
+
     <!--    right section-->
-    <section class="col-span-6 p-5">
+    <section class="col-span-6 p-6">
 
 <!--            <Radar :radarData="radarVisualization"/>-->
       <Grid :radarData="radarVisualization"/>
       <!--      <Quadrant/>-->
 
+<!--      made with <3-->
       <div class="bg-gray-700 p-3 rounded-lg text-right inline-block fixed bottom-8 right-8">
         <h3 class="text-base font-bold">Made with <span class="text-red-500">&hearts;</span> by 3327</h3>
         <span class="text-sm font-bold text-gray-500">Web 3 tech vanguards</span>
       </div>
     </section>
+    <Modal/>
   </div>
 </template>
 
@@ -137,11 +140,14 @@
 // import Radar from './components/RadarComponent.vue'
 import Grid from './components/GridComponent.vue'
 
+import Modal from './components/ModalComponent.vue'
+
 export default {
   name: 'App',
   components: {
     // Radar,
-    Grid
+    Grid,
+    Modal
   }, data() {
     return {
       radarVisualization: {

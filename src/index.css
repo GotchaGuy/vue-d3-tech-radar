@@ -13,6 +13,11 @@ body {
     sans-serif;
 }
 
+a {
+  color: #2E5198;
+  text-decoration: none;
+}
+
 #app {
   margin-top: 0;
 }
@@ -20,7 +25,7 @@ body {
 .main-section {
   min-height: 100vh;
   /*margin: 0!important;*/
-  padding: 10px;
+  /*padding: 10px;*/
   background: #242429;
 }
 
@@ -31,20 +36,20 @@ p, h1, h2, h3, div {
 .button {
   display: inline-block;
   color: lightgray;
-  font-size: 14px;
+  /*font-size: 14px;*/
   background: #333338;
-  border: 1px solid #333338;
-  padding: 4px 1px;
+  /*border: 1px solid #333338;*/
+  /*padding: 4px 1px;*/
   cursor: pointer;
 }
 
-.button:hover {
-  border: 1px solid white;
-}
+/*.button:hover {*/
+/*  border: 1px solid white;*/
+/*}*/
 
-.filter-button {
-  border: 1px solid #333338;
-}
+/*.filter-button {*/
+/*  border: 1px solid #333338;*/
+/*}*/
 
 .filter-button-active {
   border: 1px solid white;
@@ -54,4 +59,17 @@ p, h1, h2, h3, div {
 
 .display-type-inner {
   background-color: #333338;
+}
+
+.x-button {
+  /*color: white;*/
+  /*color: #6B7280;*/
+
+  border: none;
+  cursor: pointer;
+}
+
+.x-button-icon {
+  width: 2rem;
+  height: 2rem;
 }
