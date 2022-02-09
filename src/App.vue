@@ -106,13 +106,13 @@
           </ul>
         </section>
         <div class="user-buttons-container">
-          <button class="align-middle w-full button filter-button rounded-full mb-2">
+          <button class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
             <span class="leading-6 text-base font-bold"> How to read this radar? </span>
           </button>
-          <button class="align-middle w-full button filter-button rounded-full mb-2">
+          <button class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
             <span class="leading-6 text-base font-bold"> Propose new tech! </span>
           </button>
-          <button class="align-middle w-full button filter-button filter-button-active rounded-full mb-2">
+          <button class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button filter-button-active rounded-full mb-2">
             <span class="leading-6 text-base font-bold"> My tech list (3) </span>
           </button>
         </div>
@@ -123,7 +123,9 @@
     <section class="col-span-6 p-6">
 
 <!--            <Radar :radarData="radarVisualization"/>-->
-      <Grid :radarData="radarVisualization"/>
+      <Grid
+          :radarData="radarVisualization"
+      />
       <!--      <Quadrant/>-->
 
 <!--      made with <3-->
@@ -150,6 +152,8 @@ export default {
     Modal
   }, data() {
     return {
+      modalDisplay: false,
+      currentItemId: "",
       radarVisualization: {
         svg_id: "radar",
         width: 1450,
@@ -699,16 +703,11 @@ export default {
       }
     }
   },
+  mounted() {
+
+  },
+  methods: {
+
+  }
 }
 </script>
-
-<style>
-/*#app {*/
-/*  font-family: Avenir, Helvetica, Arial, sans-serif;*/
-/*  -webkit-font-smoothing: antialiased;*/
-/*  -moz-osx-font-smoothing: grayscale;*/
-/*  text-align: center;*/
-/*  color: #2c3e50;*/
-/*  !*margin-top: 60px;*!*/
-/*}*/
-</style>

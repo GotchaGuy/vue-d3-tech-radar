@@ -87,6 +87,13 @@
         </button>
       </div>
     </div>
+    <button class="flex align-middle justify-center items-center py-1 px-2 button filter-button filter-button-active rounded-full mb-2">
+      <svg class="inline-block mr-2" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
+          <path
+              d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
+        </svg>
+      <span class="leading-6 text-base font-bold"> Save to my tech list </span>
+    </button>
   </section>
 
 </template>
@@ -100,11 +107,17 @@ export default {
   props: {},
   data() {
     return {
-      displayed: true,
+      displayed: false,
+      item: {}
 
     }
   },
   mounted() {
+    this.emitter.on("toggle-modal", modalDisplay => {
+      this.displayed = modalDisplay;
+    }, item => {
+      this.item = item;
+    });
   },
   methods: {
     methodHere() {
