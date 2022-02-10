@@ -3,7 +3,7 @@
     <div class="grid grid-cols-4 container mx-auto w-4/5">
       <div v-for="(ring, i) in radarData.rings" class="col-span-1 mx-1"
            :key="i">
-        <div class="p-2 bg-mvp-gray-light text-center w-full">
+        <div class="p-2 bg-mvp-gray-light text-center w-full" :id="'ring-' + i">
           <h3 class="text-base font-bold capitalize">{{ ring.name }}</h3>
         </div>
         <ul class="ring-list">
@@ -66,7 +66,19 @@ export default {
       if (this.currentItem.j === this.previousItem.j && this.currentItem.i === this.previousItem.i || this.modalDisplay === false) {
         this.modalDisplay = !this.modalDisplay;
       }
-      this.activateSingleItem(item, this.currentItem, this.previousItem);
+      this.toggleSingleItem(item, this.currentItem, this.previousItem);
+
+      // bugs currently
+      // for (let k = 0; k < this.radarData.rings.length; k++) {
+      //   if (this.radarData.rings[k] !== i) {
+      //     console.log('ring-' + [k], i);
+      //     document.getElementById('ring-' + [k]).classList.add("opacity-60");
+      //   } else {
+      //     document.getElementById('ring-' + [i]).classList.remove("opacity-60");
+      //     document.getElementById('ring-' + [k]).classList.toggle("opacity-60");
+      //   }
+      // }
+
       this.emitter.emit("toggle-modal", {
         displayed: this.modalDisplay,
         item: item
@@ -76,7 +88,7 @@ export default {
         j: j
       }
     },
-    activateSingleItem(item, current, previous) {
+    toggleSingleItem(item, current, previous) {
       for (let k = 0; k < this.entries.length; k++) {
          // instead of .label it will be .id when we connect to db
         if (this.entries[k].label !== item.label) {
