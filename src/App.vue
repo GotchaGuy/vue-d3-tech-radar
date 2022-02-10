@@ -9,21 +9,24 @@
           elementum vehicula, metus nulla commodo erat, quis posuere diam augue non nisl. </p>
         <div class="display-type-container">
           <div class="w-96 display-type-inner rounded-full inline-block">
-            <button class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full filter-button-active border-2 border-transparent hover:border-white">
+            <button @click="openTab = 'Radar'" :class="{'filter-button-active': openTab === 'Radar'}"
+                    class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full border-2 border-transparent hover:border-white">
               <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
                 <path
                     d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
               </svg>
               <span class="leading-6 text-base font-bold"> Radar </span>
             </button>
-            <button class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full  border-2 border-transparent hover:border-white">
+            <button @click="openTab = 'Grid'" :class="{'filter-button-active': openTab === 'Grid'}"
+                    class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full  border-2 border-transparent hover:border-white">
               <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
                 <path
                     d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
               </svg>
               <span class="leading-6 text-base font-bold"> Grid </span>
             </button>
-            <button class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full  border-2 border-transparent hover:border-white">
+            <button @click="openTab = 'Quadrant'" :class="{'filter-button-active': openTab === 'Quadrant'}"
+                    class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full  border-2 border-transparent hover:border-white">
               <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
                 <path
                     d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
@@ -106,13 +109,16 @@
           </ul>
         </section>
         <div class="user-buttons-container">
-          <button class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
+          <button
+              class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
             <span class="leading-6 text-base font-bold"> How to read this radar? </span>
           </button>
-          <button class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
+          <button
+              class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
             <span class="leading-6 text-base font-bold"> Propose new tech! </span>
           </button>
-          <button class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button filter-button-active rounded-full mb-2">
+          <button
+              class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button filter-button-active rounded-full mb-2">
             <span class="leading-6 text-base font-bold"> My tech list (3) </span>
           </button>
         </div>
@@ -121,14 +127,18 @@
 
     <!--    right section-->
     <section class="col-span-6 p-6">
-
-<!--            <Radar :radarData="radarVisualization"/>-->
-      <Grid
-          :radarData="radarVisualization"
-      />
-      <!--      <Quadrant/>-->
-
-<!--      made with <3-->
+      <div :class="{'hidden': openTab !== 'Radar', 'block': openTab === 'Radar'}">
+        <Radar :radarData="radarVisualization"/>
+      </div>
+      <div :class="{'hidden': openTab !== 'Grid', 'block': openTab === 'Grid'}">
+        <Grid
+            :radarData="radarVisualization"
+        />
+      </div>
+      <div :class="{'hidden': openTab !== 'Quadrant', 'block': openTab === 'Quadrant'}">
+        <Quadrant/>
+      </div>
+      <!--      made with <3-->
       <div class="bg-gray-700 p-3 rounded-lg text-right inline-block fixed bottom-8 right-8">
         <h3 class="text-base font-bold">Made with <span class="text-red-500">&hearts;</span> by 3327</h3>
         <span class="text-sm font-bold text-gray-500">Web 3 tech vanguards</span>
@@ -139,19 +149,21 @@
 </template>
 
 <script>
-// import Radar from './components/RadarComponent.vue'
+import Radar from './components/RadarComponent.vue'
 import Grid from './components/GridComponent.vue'
-
+import Quadrant from './components/QuadrantComponent.vue'
 import Modal from './components/ModalComponent.vue'
 
 export default {
   name: 'App',
   components: {
-    // Radar,
+    Radar,
     Grid,
+    Quadrant,
     Modal
   }, data() {
     return {
+      openTab: "Grid",
       modalDisplay: false,
       currentItemId: "",
       radarVisualization: {
@@ -706,8 +718,6 @@ export default {
   mounted() {
 
   },
-  methods: {
-
-  }
+  methods: {}
 }
 </script>

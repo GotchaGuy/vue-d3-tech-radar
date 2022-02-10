@@ -61,10 +61,8 @@ export default {
     },
     toggleModal(item, i, j) {
       // when we connect the frontend to the db, add an if that will close modal if click on same item, load diff data on modal if click on diff item
-      // if (this.currentItem.i === "") {
       this.currentItem.i = i;
       this.currentItem.j = j;
-      // }
       console.log(this.currentItem.i + " ," + this.currentItem.j);
       if (this.currentItem.j === this.previousItem.j && this.currentItem.i === this.previousItem.i || this.modalDisplay === false) {
       this.modalDisplay = !this.modalDisplay;
