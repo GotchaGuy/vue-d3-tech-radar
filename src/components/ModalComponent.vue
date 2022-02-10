@@ -119,8 +119,6 @@ export default {
     });
   },
   methods: {
-    methodHere() {
-    },
   },
 
 }

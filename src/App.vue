@@ -113,7 +113,7 @@
               class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
             <span class="leading-6 text-base font-bold"> How to read this radar? </span>
           </button>
-          <button
+          <button @click="togglePropositionFormModal()"
               class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
             <span class="leading-6 text-base font-bold"> Propose new tech! </span>
           </button>
@@ -145,6 +145,7 @@
       </div>
     </section>
     <Modal/>
+    <PropositionFormModal/>
   </div>
 </template>
 
@@ -153,6 +154,7 @@ import Radar from './components/RadarComponent.vue'
 import Grid from './components/GridComponent.vue'
 import Quadrant from './components/QuadrantComponent.vue'
 import Modal from './components/ModalComponent.vue'
+import PropositionFormModal from './components/PropositionFormModalComponent.vue'
 
 export default {
   name: 'App',
@@ -160,9 +162,12 @@ export default {
     Radar,
     Grid,
     Quadrant,
-    Modal
+    Modal,
+    PropositionFormModal
+
   }, data() {
     return {
+      propFormDisplay: false,
       openTab: "Grid",
       modalDisplay: false,
       currentItemId: "",
@@ -718,6 +723,12 @@ export default {
   mounted() {
 
   },
-  methods: {}
+  methods: {
+    togglePropositionFormModal() {
+        this.emitter.emit("toggle-proposition-form-modal", {
+        displayed: !this.propFormDisplay,
+      });
+    },
+  }
 }
 </script>
