@@ -109,7 +109,7 @@
           </ul>
         </section>
         <div class="user-buttons-container">
-          <button
+          <button @click="toggleInstructionModal()"
               class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
             <span class="leading-6 text-base font-bold"> How to read this radar? </span>
           </button>
@@ -117,7 +117,7 @@
               class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
             <span class="leading-6 text-base font-bold"> Propose new tech! </span>
           </button>
-          <button
+          <button @click="toggleTechListModal()"
               class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button filter-button-active rounded-full mb-2">
             <span class="leading-6 text-base font-bold"> My tech list (3) </span>
           </button>
@@ -146,6 +146,8 @@
     </section>
     <Modal/>
     <PropositionFormModal/>
+    <TechListModal/>
+    <InstructionModal/>
   </div>
 </template>
 
@@ -155,6 +157,8 @@ import Grid from './components/GridComponent.vue'
 import Quadrant from './components/QuadrantComponent.vue'
 import Modal from './components/ModalComponent.vue'
 import PropositionFormModal from './components/PropositionFormModalComponent.vue'
+import TechListModal from './components/TechListModalComponent.vue'
+import InstructionModal from './components/InstructionModalComponent.vue'
 
 export default {
   name: 'App',
@@ -163,13 +167,17 @@ export default {
     Grid,
     Quadrant,
     Modal,
-    PropositionFormModal
+    PropositionFormModal,
+    TechListModal,
+    InstructionModal,
 
   }, data() {
     return {
-      propFormDisplay: false,
-      openTab: "Grid",
       modalDisplay: false,
+      propFormDisplay: false,
+      techListDisplay: false,
+      instructionDisplay: false,
+      openTab: "Grid",
       currentItemId: "",
       radarVisualization: {
         svg_id: "radar",
@@ -724,9 +732,20 @@ export default {
 
   },
   methods: {
+    // toggle modal methods will be one method with an extra var - a switch
     togglePropositionFormModal() {
         this.emitter.emit("toggle-proposition-form-modal", {
         displayed: !this.propFormDisplay,
+      });
+    },
+    toggleTechListModal() {
+        this.emitter.emit("toggle-tech-list-modal", {
+        displayed: !this.techListDisplay,
+      });
+    },
+    toggleInstructionModal() {
+        this.emitter.emit("toggle-instruction-modal", {
+        displayed: !this.instructionDisplay,
       });
     },
   }

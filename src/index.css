@@ -82,3 +82,7 @@ p, h1, h2, h3, div {
   width: 2rem;
   height: 2rem;
 }
+
+.sidebar-modal-component {
+  height: 100vh;
+}

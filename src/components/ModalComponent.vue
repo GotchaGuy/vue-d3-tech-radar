@@ -1,5 +1,5 @@
 <template>
-  <section v-if="displayed" class="modal-component p-6 fixed bg-mvp-gray-darker w-2/5">
+  <section v-if="displayed" class="sidebar-modal-component p-6 fixed bg-mvp-gray-darker w-2/5">
     <div class="flex justify-between pb-6">
       <h3 class="text-lg font-light pb-2 text-gray-300"><span class="font-bold">WEB 3</span> Technology radar</h3>
       <button @click="displayed = false" class="x-button text-gray-300 hover:text-gray-100">
@@ -124,10 +124,4 @@ export default {
 }
 </script>
 
-<style>
-section.modal-component {
-  height: 100vh;
-}
-
-</style>
 
