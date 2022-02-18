@@ -40,7 +40,7 @@
         <input class="w-full bg-transparent border-b-4 border-b-gray-300 pl-0 p-1 my-2" type="text" placeholder="Project twitter account (optional)">
         <input class="w-full bg-transparent border-b-4 border-b-gray-300 pl-0 p-1 my-2" type="text" placeholder="Your twitter account if you want shout out (optional)">
         <button
-            class="flex align-middle justify-center items-center mt-4 px-2 py-1 button filter-button-active rounded-full mb-2">
+            class="flex align-middle justify-center items-center mt-4 px-10 py-1 button filter-button-active rounded-full mb-2">
           <span class="leading-6 text-base font-bold"> Submit proposal </span>
         </button>
       </form>

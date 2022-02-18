@@ -11,7 +11,8 @@ module.exports = {
                 'mvp-blue': '#d8fefe',
                 'mvp-orange': '#ffc895',
                 'mvp-purple': '#db6af9',
-            }
+            },
+            display: ["group-hover"],
         },
     },
     plugins: [],

@@ -73,7 +73,6 @@ p, h1, h2, h3, div {
 .x-button {
   /*color: white;*/
   /*color: #6B7280;*/
-
   border: none;
   cursor: pointer;
 }
@@ -85,4 +84,5 @@ p, h1, h2, h3, div {
 
 .sidebar-modal-component {
   height: 100vh;
+  overflow: auto;
 }
