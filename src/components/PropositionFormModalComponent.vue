@@ -31,10 +31,10 @@
       <form action="" class="w-full">
         <input class="w-full bg-transparent border-b-4 border-b-gray-300 pl-0 p-1 my-2" required type="text" placeholder="Project or technology name">
         <select class="w-full bg-transparent border-b-4 border-b-gray-300 pl-0 p-1 my-2" required name="category" id="category" placeholder="Category">
-          <option value="tools">Tools</option>
-          <option value="tools">Tools</option>
-          <option value="tools">Tools</option>
-          <option value="tools">Tools</option>
+          <option class="bg-mvp-gray-dark" value="tools">Tools</option>
+          <option class="bg-mvp-gray-dark" value="platforms">Platforms</option>
+          <option class="bg-mvp-gray-dark" value="method-pat">Methods & Patterns</option>
+          <option class="bg-mvp-gray-dark" value="lang-frm">Languages & Frameworks</option>
         </select>
         <input class="w-full bg-transparent border-b-4 border-b-gray-300 pl-0 p-1 my-2" required type="url" placeholder="Official project website or repository">
         <input class="w-full bg-transparent border-b-4 border-b-gray-300 pl-0 p-1 my-2" type="text" placeholder="Project twitter account (optional)">
@@ -59,6 +59,14 @@ export default {
   data() {
     return {
       displayed: false,
+      newSubmit: {
+        title: "",
+        category: "",
+        site: "",
+        projectTwitter: "",
+        personalTwitter: "",
+
+      }
 
     }
   },

@@ -197,10 +197,10 @@ export default {
           {name: "Languages & Frameworks", color: "#db6af9", tw: "mvp-purple"},
         ],
         rings: [
-          {name: "Adopt"},
-          {name: "Trial"},
-          {name: "Assess"},
-          {name: "Hold"}
+          {name: "Adopt", id: 0},
+          {name: "Trial", id: 1},
+          {name: "Assess", id: 2},
+          {name: "Hold", id: 3}
         ],
         print_layout: true,
         // zoomed_quadrant: 0,
