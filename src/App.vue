@@ -1,13 +1,13 @@
 <template>
   <div class="main-section grid grid-cols-10">
     <!--    left section-->
-    <section class="col-span-4 p-6 flex flex-col justify-between relative">
+    <section class="col-span-10 md:col-span-4 p-6 flex flex-col justify-between relative">
       <div>
         <h2 class="text-4xl font-light pb-2"><span class="font-bold">WEB 3</span> Technology radar</h2>
-        <p class="w-96 inline-block text-sm font-light pb-5"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <p class="w-full md:w-96 inline-block text-sm font-light pb-5"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Nam a congue elit. Maecenas ultrices lectus et eros mollis eleifend. Sed a nibh felis. Sed pulvinar, enim vel
           elementum vehicula, metus nulla commodo erat, quis posuere diam augue non nisl. </p>
-        <div class="display-type-container">
+        <div class="md:inline-block hidden display-type-container">
           <div class="w-96 display-type-inner rounded-full inline-block">
             <button @click="openTab = 'Radar'" :class="{'filter-button-active': openTab === 'Radar'}"
                     class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full border-2 border-transparent hover:border-white">
@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="w-full lg:w-4/5 xl:w-3/5  2xl:w-2/5">
-        <section class="categories">
+        <section class="md:inline-block hidden categories">
           <div class="flex justify-between pb-2">
             <h3 class="text-base font-bold inline-block">Categories</h3>
             <div class="icon text-base font-bold inline-block px-2">?</div>
@@ -61,7 +61,7 @@
             </li>
           </ul>
         </section>
-        <section class="statuses">
+        <section class="md:inline-block hidden statuses">
           <div class="flex justify-between pb-2">
             <h3 class="text-base font-bold inline-block">Statuses</h3>
             <div class="icon text-base font-bold inline-block px-2">?</div>
@@ -108,7 +108,7 @@
             </li>
           </ul>
         </section>
-        <div class="user-buttons-container">
+        <div class="user-buttons-container pb-10 md:pb-0">
           <button @click="toggleInstructionModal()"
               class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
             <span class="leading-6 text-base font-bold"> How to read this radar? </span>
@@ -123,10 +123,17 @@
           </button>
         </div>
       </div>
+
+       <!--      made with <3-->
+      <div class="bg-gray-700 p-3 rounded-lg text-center md:text-right inline-block md:fixed md:bottom-8 md:right-8">
+        <h3 class="text-base font-bold">Made with <span class="text-red-500">&hearts;</span> by 3327</h3>
+        <span class="text-sm font-bold text-gray-500">Web 3 tech vanguards</span>
+      </div>
+
     </section>
 
     <!--    right section-->
-    <section class="col-span-6 p-6">
+    <section class="md:inline-block hidden col-span-6 p-6">
       <div :class="{'hidden': openTab !== 'Radar', 'block': openTab === 'Radar'}">
         <Radar :radarData="radarVisualization"/>
       </div>
@@ -138,12 +145,8 @@
       <div :class="{'hidden': openTab !== 'Quadrant', 'block': openTab === 'Quadrant'}">
         <Quadrant/>
       </div>
-      <!--      made with <3-->
-      <div class="bg-gray-700 p-3 rounded-lg text-right inline-block fixed bottom-8 right-8">
-        <h3 class="text-base font-bold">Made with <span class="text-red-500">&hearts;</span> by 3327</h3>
-        <span class="text-sm font-bold text-gray-500">Web 3 tech vanguards</span>
-      </div>
     </section>
+
     <Modal/>
     <PropositionFormModal/>
     <TechListModal/>
