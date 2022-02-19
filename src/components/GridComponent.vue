@@ -43,7 +43,7 @@
               </div>
               <div
                   class="flex align-middle justify-items-start items-center px-2 mt-3 mr-2 rounded-md text-gray-300 hover:text-gray-100 hover:bg-mvp-gray-light"
-                  @click="toggleModal(ringItem, i, j)">
+                  @click="toggleModal(ringItem)">
                 <span class="leading-6 text-xs font-normal pr-1"> Learn more </span>
                 <svg style="width: 10px; height: 10px;" stroke="currentColor" viewBox="0 -3 24 24"
                      xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
@@ -83,7 +83,13 @@ export default {
         previousI: "",
       },
       entries: [],
-      showByIndex: [],
+      // showByIndex: {
+      //   0: "",
+      //   1: "",
+      //   2: "",
+      //   3: "",
+      // },
+      showByIndex: [-1,-1,-1,-1],
     }
   },
   mounted() {
@@ -104,7 +110,7 @@ export default {
       // this.toggleSingleItem(item, i, j);
 
       this.emitter.emit("toggle-modal", {
-        displayed: this.modalDisplay,
+        displayed: !this.modalDisplay,
         item: item
       });
 
@@ -115,8 +121,13 @@ export default {
       this.currentItem.j = j;
 
       // console.log(this.currentItem.i + " ," + this.currentItem.j);
-      if (this.currentItem.j === this.previousItem.j && this.currentItem.i === this.previousItem.i || this.modalDisplay === false) {
-        this.modalDisplay = !this.modalDisplay;
+      // if (this.currentItem.j === this.previousItem.j && this.currentItem.i === this.previousItem.i || this.modalDisplay === false) {
+      //   this.modalDisplay = !this.modalDisplay;
+      //   this.toggleModal(item);
+      // }
+      if (this.currentItem.j === this.previousItem.j && this.currentItem.i === this.previousItem.i && this.modalDisplay === true) {
+        this.modalDisplay = false;
+        this.toggleModal(item);
       }
 
       for (let k = 0; k < this.entries.length; k++) {
@@ -172,11 +183,12 @@ export default {
       this.ringStatus.previousI = i;
     },
     toggleDropDown(i, j) {
-      this.showByIndex = [];
+      this.showByIndex = [-1,-1,-1,-1];
       if (this.showByIndex[i] !== j) {
       this.showByIndex[i] = j;
+      } else {
+        this.showByIndex[i] = -1;
       }
-
     }
   }
 
