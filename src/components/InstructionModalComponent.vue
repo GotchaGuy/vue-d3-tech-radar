@@ -1,54 +1,59 @@
 <template>
-  <section v-if="displayed" class="sidebar-modal-component p-6 fixed bg-mvp-gray-darker w-2/5">
-    <div class="flex justify-between pb-6">
-      <h3 class="text-lg font-light pb-2 text-gray-300"><span class="font-bold">WEB 3</span> Technology radar </h3>
-      <button @click="displayed = false" class="x-button text-gray-300 hover:text-gray-100">
-        <svg
-            class="x-button-icon"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-        >
-          <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
+  <section v-if="displayed"
+           class="sidebar-modal-component h-screen sm:w-full md:w-2/5 bg-mvp-gray-darker overflow-auto fixed bottom-0">
+    <div class="md:hidden p-6 bg-gray-200 opacity-40 h-32"></div>
+    <div class="p-6 bg-mvp-gray-darker h-full">
+      <div class="flex justify-between items-start">
+        <h3 class="md:inline-block hidden text-lg font-light pb-2 text-gray-300"><span class="font-bold">WEB 3</span> Technology radar </h3>
+        <h2 class="md:hidden text-lg font-bold pb-2 text-gray-100"> What is Web3 tech radar and how to read it?  </h2>
+        <button @click="displayed = false" class="x-button text-gray-300 hover:text-gray-100">
+          <svg
+              class="x-button-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+          >
+            <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+      <h2 class="md:inline-block hidden text-4xl font-bold"> What is Web3 tech radar and how to read it? </h2>
+      <div class="about-info pb-6">
+
+      </div>
+      <ul class="info-accordion pb-6 p-2">
+        <li class="info-item-container rounded-sm my-1 " v-for="(infoItem, i) in infoList" :key="i"
+            @click="infoItem.active = !infoItem.active" :class="(infoItem.active) ? 'bg-mvp-gray-light' : ''">
+          <div class="flex justify-between p-2 rounded-sm cursor-pointer group hover:bg-mvp-gray-light">
+            <span class="category-item w-full text-md font-bold"> {{ infoItem.title }}</span>
+            <div
+                class="rounded-full text-mvp-purple group-hover:text-purple-500 flex align-middle justify-center items-center"
+                :class="(infoItem.active) ? 'transform rotate-180' : ''">
+              <svg class="x-button-icon inline-block" style="width: 16px; height: 16px;"
+                   xmlns="http://www.w3.org/2000/svg"
+                   fill-rule="evenodd" clip-rule="evenodd" stroke="currentColor" viewBox="0 0 24 24"
+                   preserveAspectRatio="xMidYMin meet">
+                <path d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"/>
+              </svg>
+            </div>
+          </div>
+          <div v-if="infoItem.active" class="p-2">
+            <p v-for="(paragraph, j) in infoItem.paragraphs" :key="j" class="text-sm pb-2 text-gray-300 font-light">
+              {{ paragraph }} </p>
+          </div>
+        </li>
+
+      </ul>
+      <button
+          class="flex align-middle justify-center items-center mt-4 px-10 py-1 button filter-button-active rounded-full mb-2">
+        <span class="leading-6 text-base font-bold"> I'm ready to explore </span>
       </button>
     </div>
-    <h2 class="text-4xl font-bold"> What is Web3 tech radar and how to read it? </h2>
-    <div class="about-info pb-6">
-
-    </div>
-    <ul class="info-accordion pb-6 p-2">
-      <li class="info-item-container rounded-sm my-1 " v-for="(infoItem, i) in infoList" :key="i"
-          @click="infoItem.active = !infoItem.active" :class="(infoItem.active) ? 'bg-mvp-gray-light' : ''">
-        <div class="flex justify-between p-2 rounded-sm cursor-pointer group hover:bg-mvp-gray-light">
-          <span class="category-item w-full text-md font-bold"> {{ infoItem.title }}</span>
-          <div
-              class="rounded-full text-mvp-purple group-hover:text-purple-500 flex align-middle justify-center items-center"
-              :class="(infoItem.active) ? 'transform rotate-180' : ''">
-            <svg class="x-button-icon inline-block" style="width: 16px; height: 16px;"
-                 xmlns="http://www.w3.org/2000/svg"
-                 fill-rule="evenodd" clip-rule="evenodd" stroke="currentColor" viewBox="0 0 24 24"
-                 preserveAspectRatio="xMidYMin meet">
-              <path d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"/>
-            </svg>
-          </div>
-        </div>
-        <div v-if="infoItem.active" class="p-2">
-          <p v-for="(paragraph, j) in infoItem.paragraphs" :key="j" class="text-sm pb-2 text-gray-300 font-light">
-            {{ paragraph }} </p>
-        </div>
-      </li>
-
-    </ul>
-    <button
-        class="flex align-middle justify-center items-center mt-4 px-10 py-1 button filter-button-active rounded-full mb-2">
-      <span class="leading-6 text-base font-bold"> I'm ready to explore </span>
-    </button>
   </section>
 
 </template>
