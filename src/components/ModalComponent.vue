@@ -1,7 +1,10 @@
 <template>
-  <section v-if="displayed" class="sidebar-modal-component p-6 fixed bg-mvp-gray-darker w-2/5">
-    <div class="flex justify-between pb-6">
-      <h3 class="text-lg font-light pb-2 text-gray-300"><span class="font-bold">WEB 3</span> Technology radar</h3>
+  <section v-if="displayed" class="sidebar-modal-component h-screen sm:w-full md:w-2/5 bg-mvp-gray-darker overflow-auto fixed bottom-0">
+    <div class="md:hidden p-6 bg-gray-200 opacity-40 h-32"></div>
+  <div class="p-6 bg-mvp-gray-darker h-full">
+    <div class="flex justify-between">
+      <h3 class="md:inline-block hidden text-lg font-light pb-2 text-gray-300"><span class="font-bold">WEB 3</span> Technology radar</h3>
+      <h2 class="md:hidden text-lg font-bold pb-2 text-gray-100"> {{ item.label }} </h2>
       <button @click="displayed = false" class="x-button text-gray-300 hover:text-gray-100">
         <svg
             class="x-button-icon"
@@ -18,7 +21,7 @@
         </svg>
       </button>
     </div>
-    <h2 class="text-5xl font-bold"> {{item.label}} </h2>
+    <h2 class="md:inline-block hidden text-5xl font-bold pt-6"> {{ item.label }} </h2>
     <div class="flex justify-start py-3">
       <div class="flex align-middle justify-center items-center py-1 px-2 mr-2 rounded-full hover:bg-mvp-gray-light">
         <svg class="inline-block mr-2" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
@@ -70,30 +73,32 @@
       <h3 class="text-lg pb-2 text-white font-bold"> Notable projects </h3>
       <div class="project-list">
         <button
-            class="flex align-middle justify-center items-center py-1 px-2 mr-2 button filter-button rounded-full border-2 border-transparent hover:border-white">
+            class="flex align-middle justify-center items-center py-1 px-2 mr-2 mb-1 button filter-button rounded-full border-2 border-transparent hover:border-white">
           <span class="leading-6 text-base font-bold"> Hina </span>
         </button>
         <button
-            class="flex align-middle justify-center items-center py-1 px-2 mr-2 button filter-button rounded-full  border-2 border-transparent hover:border-white">
+            class="flex align-middle justify-center items-center py-1 px-2 mr-2 mb-1 button filter-button rounded-full  border-2 border-transparent hover:border-white">
           <span class="leading-6 text-base font-bold"> Zokrates </span>
         </button>
         <button
-            class="flex align-middle justify-center items-center py-1 px-2 mr-2 button filter-button rounded-full  border-2 border-transparent hover:border-white">
+            class="flex align-middle justify-center items-center py-1 px-2 mr-2 mb-1 button filter-button rounded-full  border-2 border-transparent hover:border-white">
           <span class="leading-6 text-base font-bold"> Gnark </span>
         </button>
         <button
-            class="flex align-middle justify-center items-center py-1 px-2 mr-2 button filter-button rounded-full  border-2 border-transparent hover:border-white">
+            class="flex align-middle justify-center items-center py-1 px-2 mr-2 mb-1 button filter-button rounded-full  border-2 border-transparent hover:border-white">
           <span class="leading-6 text-base font-bold"> Pysnork </span>
         </button>
       </div>
     </div>
-    <button class="flex align-middle justify-center items-center py-1 px-2 button filter-button filter-button-active rounded-full mb-2">
+    <button
+        class="flex align-middle justify-center items-center py-1 px-2 button filter-button filter-button-active rounded-full mb-2">
       <svg class="inline-block mr-2" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
-          <path
-              d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
-        </svg>
+        <path
+            d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
+      </svg>
       <span class="leading-6 text-base font-bold"> Save to my tech list </span>
     </button>
+  </div>
   </section>
 
 </template>
@@ -118,8 +123,7 @@ export default {
       this.item = data.item;
     });
   },
-  methods: {
-  },
+  methods: {},
 
 }
 </script>

@@ -83,6 +83,11 @@ p, h1, h2, h3, div {
 }
 
 .sidebar-modal-component {
-  height: 100vh;
+  /*height: 100vh;*/
+  /*overflow: auto;*/
+}
+
+.bottom-modal-component {
+  height: 85vh;
   overflow: auto;
 }

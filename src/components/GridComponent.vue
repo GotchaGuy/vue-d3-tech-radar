@@ -1,13 +1,12 @@
 <template>
   <section>
-    <div class="grid grid-cols-4 container mx-auto w-4/5">
+    <div class="grid grid-cols-4 container mx-auto w-6/7 2xl:w-4/5">
       <div v-for="(ring, i) in radarData.rings" class="col-span-1 mx-1" :key="i">
         <div class="cursor-pointer p-2 bg-mvp-gray-light text-center w-full" :id="'ring-' + i"
              @click="toggleRing(ring, i)">
           <h3 class="text-base font-bold capitalize">{{ ring.name }}</h3>
         </div>
         <ul class="ring-list">
-          <!--              @mouseover="delayTrigger(i, j)" @mouseout="delayTrigger(i, null)"-->
           <li v-for="(ringItem, j) in getRingEntries(entries, i)"
               :class="(!ringItem.active) ? 'opacity-40' : ''"
               class="cursor-pointer ring-item p-2 my-0.5 bg-gray-800 bg-opacity-40 text-base font-light text-white hover:bg-mvp-gray-darker rounded-md"
@@ -19,7 +18,7 @@
               <span class="font-bold"> {{ ringItem.label }} </span>
             </div>
 
-            <div v-if="showByIndex[i] === j" class="sub-info flex flex-col justify-start align-top pt-3 transition ease-in duration-200 ">
+            <div v-if="showByIndex[i] === j" class="sub-info flex flex-col justify-start align-top pt-3 transition ease-in duration-200">
               <div class="block flex align-middle justify-items-start items-center px-2 mr-2 rounded-full">
                 <svg class="inline-block mr-2" xmlns="http://www.w3.org/2000/svg" width="21" height="21"
                      viewBox="0 0 24 24">

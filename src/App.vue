@@ -36,7 +36,7 @@
           </div>
         </div>
       </div>
-      <div class="w-1/3">
+      <div class="w-full lg:w-4/5 xl:w-3/5  2xl:w-2/5">
         <section class="categories">
           <div class="flex justify-between pb-2">
             <h3 class="text-base font-bold inline-block">Categories</h3>
