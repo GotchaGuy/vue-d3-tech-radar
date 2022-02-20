@@ -18,7 +18,8 @@
               <span class="font-bold"> {{ ringItem.label }} </span>
             </div>
 
-            <div v-if="showByIndex[i] === j" class="sub-info flex flex-col justify-start align-top pt-3 transition ease-in duration-200">
+            <div v-if="showByIndex[i] === j"
+                 class="sub-info flex flex-col justify-start align-top pt-3 transition ease-in duration-200">
               <div class="block flex align-middle justify-items-start items-center px-2 mr-2 rounded-full">
                 <svg class="inline-block mr-2" xmlns="http://www.w3.org/2000/svg" width="21" height="21"
                      viewBox="0 0 24 24">
@@ -85,20 +86,24 @@ export default {
       entries: [],
       rings: [],
       quadrants: [],
-      showByIndex: [-1,-1,-1,-1],
+      showByIndex: [-1, -1, -1, -1],
     }
   },
   mounted() {
     // this.entries = this.radarData.entries;
     // this.rings = this.radarData.rings;
     this.emitter.on("data-to-grid-comp", (data) => {
-      console.log(data.category);
       this.category = data.category;
       this.entries = data.radarData.entries;
       this.rings = data.radarData.rings;
       this.quadrants = data.radarData.quadrants;
     });
 
+
+    // this.checkCategory();
+  },
+  updated() {
+    console.log("cat: " + this.category);
     this.checkCategory();
   },
   unmounted() {
@@ -192,21 +197,31 @@ export default {
       this.ringStatus.previousI = i;
     },
     toggleDropDown(i, j) {
-      this.showByIndex = [-1,-1,-1,-1];
+      this.showByIndex = [-1, -1, -1, -1];
       if (this.showByIndex[i] !== j) {
-      this.showByIndex[i] = j;
+        this.showByIndex[i] = j;
       } else {
         this.showByIndex[i] = -1;
       }
     },
     checkCategory() {
+      console.log(this.category);
       if (this.category === '') {
-                    this.entries = this.radarData.entries;
-                    this.rings = this.radarData.rings;
-            } else {
+        this.entries = this.radarData.entries;
+        this.rings = this.radarData.rings;
+      } else {
         for (let i = 0; i < this.quadrants.length; i++) {
           if (this.quadrants[i].name === this.category) {
-            this.entries = this.entries.filter(this.filterCat(this.entries, i));
+            var categoryEntries = [];
+            for (let k = 0; k < this.entries.length; k++) {
+        if (this.entries[k].quadrant === i) {
+          categoryEntries.push(this.entries[k]);
+        }
+      }
+            this.entries = categoryEntries;
+
+            // this.entries = this.entries[0];
+            // this.entries = this.entries.filter(this.filterCat(this.entries, i));
           }
         }
       }
