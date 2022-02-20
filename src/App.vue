@@ -39,13 +39,49 @@
       </div>
       <div class="w-full lg:w-4/5 xl:w-3/5 2xl:w-2/5 mb-5">
         <section class="md:hidden categories-mobile grid gap-2 grid-cols-2 w-full mb-5">
-          <button v-for="(button, i) in buttonsArr" @click="openTab = ''" :class="{'': openTab === ''}" :key="i"
-                  class="flex box-border justify-center items-center p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
-            <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
-              <path
-                  d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
+          <button @click="openTab = ''" :class="{'': openTab === ''}"
+                  class="overflow-hidden relative p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
+            <span class="absolute bottom-3 left-3 leading-6 text-base font-bold"> Tools </span>
+            <svg class="absolute bottom-0 right-0 " height="50" width="50">
+              <circle class="text-mvp-green opacity-40" cx="50" cy="50" r="50" fill="currentColor"/>
+              <circle class="text-mvp-green opacity-60" cx="50" cy="50" r="40" fill="currentColor"/>
+              <circle class="text-mvp-green opacity-80" cx="50" cy="50" r="30" fill="currentColor"/>
+              <circle class="text-mvp-green" cx="50" cy="50" r="20" fill="currentColor"/>
+              Sorry, your browser does not support inline SVG.
             </svg>
-            <span class="leading-6 text-base font-bold"> Tools </span>
+          </button>
+          <button @click="openTab = ''" :class="{'': openTab === ''}"
+                  class="overflow-hidden relative p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
+            <svg class="absolute bottom-0 left-0 " height="50" width="50">
+              <circle class="text-mvp-blue opacity-40" cx="0" cy="50" r="50" fill="currentColor"/>
+              <circle class="text-mvp-blue opacity-60" cx="0" cy="50" r="40" fill="currentColor"/>
+              <circle class="text-mvp-blue opacity-80" cx="0" cy="50" r="30" fill="currentColor"/>
+              <circle class="text-mvp-blue" cx="0" cy="50" r="20" fill="currentColor"/>
+              Sorry, your browser does not support inline SVG.
+            </svg>
+            <span class="absolute bottom-3 right-3 leading-6 text-base font-bold"> Platforms </span>
+          </button>
+          <button @click="openTab = ''" :class="{'': openTab === ''}"
+                  class="overflow-hidden relative p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
+            <span class="absolute bottom-3 left-3 text-left leading-6 text-base font-bold w-32"> Methods & Patterns </span>
+            <svg class="absolute top-0 right-0 " height="50" width="50">
+              <circle class="text-mvp-orange opacity-40" cx="50" cy="0" r="50" fill="currentColor"/>
+              <circle class="text-mvp-orange opacity-60" cx="50" cy="0" r="40" fill="currentColor"/>
+              <circle class="text-mvp-orange opacity-80" cx="50" cy="0" r="30" fill="currentColor"/>
+              <circle class="text-mvp-orange" cx="50" cy="0" r="20" fill="currentColor"/>
+              Sorry, your browser does not support inline SVG.
+            </svg>
+          </button>
+          <button @click="openTab = ''" :class="{'': openTab === ''}"
+                  class="overflow-hidden relative p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
+            <svg class="absolute top-0 left-0 " height="50" width="50">
+              <circle class="text-mvp-purple opacity-40" cx="0" cy="0" r="50" fill="currentColor"/>
+              <circle class="text-mvp-purple opacity-60" cx="0" cy="0" r="40" fill="currentColor"/>
+              <circle class="text-mvp-purple opacity-80" cx="0" cy="0" r="30" fill="currentColor"/>
+              <circle class="text-mvp-purple" cx="0" cy="0" r="20" fill="currentColor"/>
+              Sorry, your browser does not support inline SVG.
+            </svg>
+            <span class="absolute bottom-3 right-3 text-right leading-6 text-base font-bold w-32"> Languages & Frameworks </span>
           </button>
         </section>
         <section class="md:inline-block hidden categories">
