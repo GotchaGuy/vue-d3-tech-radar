@@ -11,7 +11,7 @@
           elementum vehicula, metus nulla commodo erat, quis posuere diam augue non nisl. </p>
 
 <!--        radar-display-toggle-->
-        <div class="md:inline-block hidden display-type-container pb-5">
+        <div class="md:inline-block hidden display-type-container pb-5 w-full">
           <div class="w-96 display-type-inner bg-mvp-gray-light rounded-full inline-block">
             <button @click="openTab = 'Radar'" :class="{'filter-button-active': openTab === 'Radar'}"
                     class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full border-2 border-transparent hover:border-white">
@@ -46,7 +46,7 @@
         <!--        mobile category buttons-->
         <section class="md:hidden categories-mobile grid gap-1 grid-cols-2 w-full mb-5">
           <!--          :class="{'button-cat-active': openCat === 'tools'}"-->
-          <button @click="openCat = 'tools'"
+          <button @click="toggleMobileGridModal('Tools')"
                   class="overflow-hidden relative p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
             <span class="absolute bottom-3 left-3 leading-6 text-base font-bold"> Tools </span>
             <svg class="absolute bottom-0 right-0 " height="50" width="50">
@@ -57,7 +57,7 @@
               Sorry, your browser does not support inline SVG.
             </svg>
           </button>
-          <button @click="openCat = 'platforms'"
+          <button @click="toggleMobileGridModal('Platforms')"
                   class="overflow-hidden relative p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
             <svg class="absolute bottom-0 left-0 " height="50" width="50">
               <circle class="text-mvp-blue opacity-40" cx="0" cy="50" r="50" fill="currentColor"/>
@@ -68,7 +68,7 @@
             </svg>
             <span class="absolute bottom-3 right-3 leading-6 text-base font-bold"> Platforms </span>
           </button>
-          <button @click="openCat = 'method-pat'"
+          <button @click="toggleMobileGridModal('Methods & Patterns')"
                   class="overflow-hidden relative p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
             <span
                 class="absolute bottom-3 left-3 text-left leading-6 text-base font-bold w-32"> Methods & Patterns </span>
@@ -80,7 +80,7 @@
               Sorry, your browser does not support inline SVG.
             </svg>
           </button>
-          <button @click="openCat = 'lang-frm'"
+          <button @click="toggleMobileGridModal('Languages & Frameworks')"
                   class="overflow-hidden relative p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
             <svg class="absolute top-0 left-0 " height="50" width="50">
               <circle class="text-mvp-purple opacity-40" cx="0" cy="0" r="50" fill="currentColor"/>
@@ -193,12 +193,10 @@
     <!--    right section-->
     <section class="md:inline-block hidden col-span-6 p-6">
       <div :class="{'hidden': openTab !== 'Radar', 'block': openTab === 'Radar'}">
-        <Radar :radarData="radarVisualization"/>
+        <Radar :radarData="radarVisualization" />
       </div>
       <div :class="{'hidden': openTab !== 'Grid', 'block': openTab === 'Grid'}">
-        <Grid
-            :radarData="radarVisualization"
-        />
+        <Grid :radarData="radarVisualization" />
       </div>
       <div :class="{'hidden': openTab !== 'Quadrant', 'block': openTab === 'Quadrant'}">
         <Quadrant/>
@@ -209,6 +207,8 @@
     <PropositionFormModal/>
     <TechListModal/>
     <InstructionModal/>
+
+    <MobileGridModal/>
   </div>
 </template>
 
@@ -220,6 +220,7 @@ import Modal from './components/ModalComponent.vue'
 import PropositionFormModal from './components/PropositionFormModalComponent.vue'
 import TechListModal from './components/TechListModalComponent.vue'
 import InstructionModal from './components/InstructionModalComponent.vue'
+import MobileGridModal from './components/MobileGridModalComponent.vue'
 
 export default {
   name: 'App',
@@ -231,6 +232,7 @@ export default {
     PropositionFormModal,
     TechListModal,
     InstructionModal,
+    MobileGridModal
 
   }, data() {
     return {
@@ -238,6 +240,7 @@ export default {
       propFormDisplay: false,
       techListDisplay: false,
       instructionDisplay: false,
+      mobileGridDisplay: false,
       openTab: "Grid",
       openCat: "",
       currentItemId: "",
@@ -255,7 +258,7 @@ export default {
         quadrants: [
           {name: "Tools", color: "#8aedb1", tw: "mvp-green"},
           {name: "Platforms", color: "#d8fefe", tw: "mvp-blue"},
-          {name: "Methods & patterns", color: "#ffc895", tw: "mvp-orange"},
+          {name: "Methods & Patterns", color: "#ffc895", tw: "mvp-orange"},
           {name: "Languages & Frameworks", color: "#db6af9", tw: "mvp-purple"},
         ],
         rings: [
@@ -808,6 +811,19 @@ export default {
     toggleInstructionModal() {
       this.emitter.emit("toggle-instruction-modal", {
         displayed: !this.instructionDisplay,
+      });
+    },
+    toggleMobileGridModal(category) {
+      this.emitter.emit("toggle-mobile-grid-modal", {
+        displayed: !this.mobileGridDisplay,
+      });
+      this.emitter.emit("data-to-grid-comp", {
+        category: category,
+        radarData: {
+          entries: this.radarVisualization.entries,
+          rings: this.radarVisualization.rings,
+          quadrants: this.radarVisualization.quadrants,
+        }
       });
     },
   }

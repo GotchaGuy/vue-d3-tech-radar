@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="grid grid-cols-4 container mx-auto w-6/7 2xl:w-4/5">
-      <div v-for="(ring, i) in radarData.rings" class="col-span-1 mx-1" :key="i">
+      <div v-for="(ring, i) in rings" class="col-span-1 mx-1" :key="i">
         <div class="cursor-pointer p-2 bg-mvp-gray-light text-center w-full" :id="'ring-' + i"
              @click="toggleRing(ring, i)">
           <h3 class="text-base font-bold capitalize">{{ ring.name }}</h3>
@@ -69,6 +69,7 @@ export default {
   data() {
     return {
       modalDisplay: false,
+      category: "",
       currentItem: {
         i: "",
         j: ""
@@ -82,17 +83,26 @@ export default {
         previousI: "",
       },
       entries: [],
-      // showByIndex: {
-      //   0: "",
-      //   1: "",
-      //   2: "",
-      //   3: "",
-      // },
+      rings: [],
+      quadrants: [],
       showByIndex: [-1,-1,-1,-1],
     }
   },
   mounted() {
-    this.entries = this.radarData.entries
+    // this.entries = this.radarData.entries;
+    // this.rings = this.radarData.rings;
+    this.emitter.on("data-to-grid-comp", (data) => {
+      console.log(data.category);
+      this.category = data.category;
+      this.entries = data.radarData.entries;
+      this.rings = data.radarData.rings;
+      this.quadrants = data.radarData.quadrants;
+    });
+
+    this.checkCategory();
+  },
+  unmounted() {
+    this.category = '';
   },
   methods: {
     getRingEntries(entries, ring) {
@@ -188,7 +198,22 @@ export default {
       } else {
         this.showByIndex[i] = -1;
       }
-    }
+    },
+    checkCategory() {
+      if (this.category === '') {
+                    this.entries = this.radarData.entries;
+                    this.rings = this.radarData.rings;
+            } else {
+        for (let i = 0; i < this.quadrants.length; i++) {
+          if (this.quadrants[i].name === this.category) {
+            this.entries = this.entries.filter(this.filterCat(this.entries, i));
+          }
+        }
+      }
+    },
+    filterCat(entry, i) {
+      return entry.quadrant = i;
+    },
   }
 
 }
