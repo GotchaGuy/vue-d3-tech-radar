@@ -73,19 +73,19 @@
       <h3 class="text-lg pb-2 text-white font-bold"> Notable projects </h3>
       <div class="project-list">
         <button
-            class="flex align-middle justify-center items-center py-1 px-2 mr-2 mb-1 button filter-button rounded-full border-2 border-transparent hover:border-white">
+            class="flex align-middle justify-center items-center py-1 px-2 mr-2 mb-1 button bg-mvp-gray-light filter-button rounded-full border-2 border-transparent hover:border-white">
           <span class="leading-6 text-base font-bold"> Hina </span>
         </button>
         <button
-            class="flex align-middle justify-center items-center py-1 px-2 mr-2 mb-1 button filter-button rounded-full  border-2 border-transparent hover:border-white">
+            class="flex align-middle justify-center items-center py-1 px-2 mr-2 mb-1 button bg-mvp-gray-light filter-button rounded-full border-2 border-transparent hover:border-white">
           <span class="leading-6 text-base font-bold"> Zokrates </span>
         </button>
         <button
-            class="flex align-middle justify-center items-center py-1 px-2 mr-2 mb-1 button filter-button rounded-full  border-2 border-transparent hover:border-white">
+            class="flex align-middle justify-center items-center py-1 px-2 mr-2 mb-1 button bg-mvp-gray-light filter-button rounded-full border-2 border-transparent hover:border-white">
           <span class="leading-6 text-base font-bold"> Gnark </span>
         </button>
         <button
-            class="flex align-middle justify-center items-center py-1 px-2 mr-2 mb-1 button filter-button rounded-full  border-2 border-transparent hover:border-white">
+            class="flex align-middle justify-center items-center py-1 px-2 mr-2 mb-1 button bg-mvp-gray-light filter-button rounded-full border-2 border-transparent hover:border-white">
           <span class="leading-6 text-base font-bold"> Pysnork </span>
         </button>
       </div>

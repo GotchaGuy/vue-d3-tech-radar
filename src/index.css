@@ -46,7 +46,7 @@ p, h1, h2, h3, div {
   display: inline-block;
   color: lightgray;
   /*font-size: 14px;*/
-  background: #333338;
+  /*background: #333338;*/
   /*border: 1px solid #333338;*/
   /*padding: 4px 1px;*/
   cursor: pointer;
@@ -67,7 +67,7 @@ p, h1, h2, h3, div {
 }
 
 .display-type-inner {
-  background-color: #333338;
+  /*background-color: #333338;*/
 }
 
 .x-button {

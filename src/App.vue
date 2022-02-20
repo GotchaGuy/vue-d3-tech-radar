@@ -9,7 +9,7 @@
           Nam a congue elit. Maecenas ultrices lectus et eros mollis eleifend. Sed a nibh felis. Sed pulvinar, enim vel
           elementum vehicula, metus nulla commodo erat, quis posuere diam augue non nisl. </p>
         <div class="md:inline-block hidden display-type-container">
-          <div class="w-96 display-type-inner rounded-full inline-block">
+          <div class="w-96 display-type-inner bg-mvp-gray-light rounded-full inline-block">
             <button @click="openTab = 'Radar'" :class="{'filter-button-active': openTab === 'Radar'}"
                     class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full border-2 border-transparent hover:border-white">
               <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
@@ -37,10 +37,10 @@
           </div>
         </div>
       </div>
-      <div class="w-full lg:w-4/5 xl:w-3/5  2xl:w-2/5">
-        <section class="md:hidden categories-mobile w-full">
+      <div class="w-full lg:w-4/5 xl:w-3/5 2xl:w-2/5 mb-5">
+        <section class="md:hidden categories-mobile grid gap-2 grid-cols-2 w-full mb-5">
           <button v-for="(button, i) in buttonsArr" @click="openTab = ''" :class="{'': openTab === ''}" :key="i"
-                  class="flex align-middle justify-center items-center p-2 m-2 w-1/2 h-24 button filter-button rounded-lg border-2 border-transparent hover:border-white">
+                  class="flex box-border justify-center items-center p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
             <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
               <path
                   d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
@@ -121,15 +121,15 @@
         </section>
         <div class="user-buttons-container pb-10 md:pb-0">
           <button @click="toggleInstructionModal()"
-                  class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
+                  class="flex align-middle justify-center items-center py-1 px-2 w-full button bg-mvp-gray-light filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
             <span class="leading-6 text-base font-bold"> How to read this radar? </span>
           </button>
           <button @click="togglePropositionFormModal()"
-                  class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
+                  class="flex align-middle justify-center items-center py-1 px-2 w-full button bg-mvp-gray-light filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
             <span class="leading-6 text-base font-bold"> Propose new tech! </span>
           </button>
           <button @click="toggleTechListModal()"
-                  class="flex align-middle justify-center items-center py-1 px-2 w-full button filter-button filter-button-active rounded-full mb-2">
+                  class="flex align-middle justify-center items-center py-1 px-2 w-full button bg-mvp-gray-light filter-button filter-button-active rounded-full mb-2">
             <span class="leading-6 text-base font-bold"> My tech list (3) </span>
           </button>
         </div>
