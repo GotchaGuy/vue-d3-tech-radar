@@ -66,6 +66,11 @@ p, h1, h2, h3, div {
   color: #333338;
 }
 
+.button-cat-active {
+  background-color: white;
+  color: #242429;
+}
+
 .display-type-inner {
   /*background-color: #333338;*/
 }

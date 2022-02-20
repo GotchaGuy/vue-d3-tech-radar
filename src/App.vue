@@ -2,13 +2,16 @@
   <div class="main-section grid grid-cols-10">
     <!--    left section-->
     <section class="col-span-10 md:col-span-4 p-6 flex flex-col justify-between relative">
+      <!--      title-section-->
       <div>
         <h2 class="text-4xl font-light pb-2"><span class="font-bold">WEB 3</span> Technology radar</h2>
         <p class="w-full md:w-96 inline-block text-sm font-light pb-5"> Lorem ipsum dolor sit amet, consectetur
           adipiscing elit.
           Nam a congue elit. Maecenas ultrices lectus et eros mollis eleifend. Sed a nibh felis. Sed pulvinar, enim vel
           elementum vehicula, metus nulla commodo erat, quis posuere diam augue non nisl. </p>
-        <div class="md:inline-block hidden display-type-container">
+
+<!--        radar-display-toggle-->
+        <div class="md:inline-block hidden display-type-container pb-5">
           <div class="w-96 display-type-inner bg-mvp-gray-light rounded-full inline-block">
             <button @click="openTab = 'Radar'" :class="{'filter-button-active': openTab === 'Radar'}"
                     class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full border-2 border-transparent hover:border-white">
@@ -36,10 +39,14 @@
             </button>
           </div>
         </div>
+
       </div>
+      <!--      bottom-left-section-->
       <div class="w-full lg:w-4/5 xl:w-3/5 2xl:w-2/5 mb-5">
-        <section class="md:hidden categories-mobile grid gap-2 grid-cols-2 w-full mb-5">
-          <button @click="openTab = ''" :class="{'': openTab === ''}"
+        <!--        mobile category buttons-->
+        <section class="md:hidden categories-mobile grid gap-1 grid-cols-2 w-full mb-5">
+          <!--          :class="{'button-cat-active': openCat === 'tools'}"-->
+          <button @click="openCat = 'tools'"
                   class="overflow-hidden relative p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
             <span class="absolute bottom-3 left-3 leading-6 text-base font-bold"> Tools </span>
             <svg class="absolute bottom-0 right-0 " height="50" width="50">
@@ -50,7 +57,7 @@
               Sorry, your browser does not support inline SVG.
             </svg>
           </button>
-          <button @click="openTab = ''" :class="{'': openTab === ''}"
+          <button @click="openCat = 'platforms'"
                   class="overflow-hidden relative p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
             <svg class="absolute bottom-0 left-0 " height="50" width="50">
               <circle class="text-mvp-blue opacity-40" cx="0" cy="50" r="50" fill="currentColor"/>
@@ -61,9 +68,10 @@
             </svg>
             <span class="absolute bottom-3 right-3 leading-6 text-base font-bold"> Platforms </span>
           </button>
-          <button @click="openTab = ''" :class="{'': openTab === ''}"
+          <button @click="openCat = 'method-pat'"
                   class="overflow-hidden relative p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
-            <span class="absolute bottom-3 left-3 text-left leading-6 text-base font-bold w-32"> Methods & Patterns </span>
+            <span
+                class="absolute bottom-3 left-3 text-left leading-6 text-base font-bold w-32"> Methods & Patterns </span>
             <svg class="absolute top-0 right-0 " height="50" width="50">
               <circle class="text-mvp-orange opacity-40" cx="50" cy="0" r="50" fill="currentColor"/>
               <circle class="text-mvp-orange opacity-60" cx="50" cy="0" r="40" fill="currentColor"/>
@@ -72,7 +80,7 @@
               Sorry, your browser does not support inline SVG.
             </svg>
           </button>
-          <button @click="openTab = ''" :class="{'': openTab === ''}"
+          <button @click="openCat = 'lang-frm'"
                   class="overflow-hidden relative p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
             <svg class="absolute top-0 left-0 " height="50" width="50">
               <circle class="text-mvp-purple opacity-40" cx="0" cy="0" r="50" fill="currentColor"/>
@@ -84,7 +92,8 @@
             <span class="absolute bottom-3 right-3 text-right leading-6 text-base font-bold w-32"> Languages & Frameworks </span>
           </button>
         </section>
-        <section class="md:inline-block hidden categories">
+        <!--        desktop category list-->
+        <section class="md:inline-block hidden categories w-full">
           <div class="flex justify-between pb-2">
             <h3 class="text-base font-bold inline-block">Categories</h3>
             <div class="icon text-base font-bold inline-block px-2">?</div>
@@ -108,7 +117,8 @@
             </li>
           </ul>
         </section>
-        <section class="md:inline-block hidden statuses">
+        <!--        desktop status list-->
+        <section class="md:inline-block hidden statuses w-full">
           <div class="flex justify-between pb-2">
             <h3 class="text-base font-bold inline-block">Statuses</h3>
             <div class="icon text-base font-bold inline-block px-2">?</div>
@@ -155,6 +165,7 @@
             </li>
           </ul>
         </section>
+        <!--        user buttons-->
         <div class="user-buttons-container pb-10 md:pb-0">
           <button @click="toggleInstructionModal()"
                   class="flex align-middle justify-center items-center py-1 px-2 w-full button bg-mvp-gray-light filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
@@ -223,12 +234,12 @@ export default {
 
   }, data() {
     return {
-      buttonsArr: [{}, {}, {}, {}],
       modalDisplay: false,
       propFormDisplay: false,
       techListDisplay: false,
       instructionDisplay: false,
       openTab: "Grid",
+      openCat: "",
       currentItemId: "",
       radarVisualization: {
         svg_id: "radar",
