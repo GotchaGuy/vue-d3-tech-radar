@@ -1,13 +1,13 @@
 <template>
   <section>
-    <div class="grid grid-cols-4 container mx-auto w-6/7 2xl:w-4/5">
+    <div class="grid grid-cols-1 md:grid-cols-4 container mx-auto w-full md:w-6/7 2xl:w-4/5">
       <div v-for="(ring, i) in rings" class="col-span-1 mx-1" :key="i">
         <div class="cursor-pointer p-2 bg-mvp-gray-light text-center w-full" :id="'ring-' + i"
              @click="toggleRing(ring, i)">
           <h3 class="text-base font-bold capitalize">{{ ring.name }}</h3>
         </div>
         <ul class="ring-list">
-          <li v-for="(ringItem, j) in getRingEntries(entries, i)"
+          <li v-for="(ringItem, j) in getRingEntries(entries, i, category)"
               :class="(!ringItem.active) ? 'opacity-40' : ''"
               class="cursor-pointer ring-item p-2 my-0.5 bg-gray-800 bg-opacity-40 text-base font-light text-white hover:bg-mvp-gray-darker rounded-md"
               :key="j">
@@ -65,7 +65,8 @@ export default {
   name: "Grid",
   components: {},
   props: {
-    radarData: Object
+    radarData: Object,
+    allCategories: Boolean,
   },
   data() {
     return {
@@ -90,8 +91,11 @@ export default {
     }
   },
   mounted() {
-    // this.entries = this.radarData.entries;
-    // this.rings = this.radarData.rings;
+    if (this.allCategories) {
+    this.entries = this.radarData.entries;
+    this.rings = this.radarData.rings;
+    }
+
     this.emitter.on("data-to-grid-comp", (data) => {
       this.category = data.category;
       this.entries = data.radarData.entries;
@@ -102,22 +106,38 @@ export default {
 
     // this.checkCategory();
   },
-  updated() {
-    console.log("cat: " + this.category);
-    this.checkCategory();
-  },
+  // updated() {
+  //   console.log("cat: " + this.category);
+  //   this.checkCategory();
+  // },
   unmounted() {
     this.category = '';
   },
   methods: {
-    getRingEntries(entries, ring) {
+    getRingEntries(entries, ring, category) {
       var ringEntries = [];
+      if (category !== "") {
+       entries = this.checkCategory(category);
+      }
       for (let k = 0; k < entries.length; k++) {
         if (entries[k].ring === ring) {
           ringEntries.push(entries[k]);
         }
       }
       return ringEntries;
+    },
+    checkCategory(category) {
+      for (let i = 0; i < this.quadrants.length; i++) {
+          if (this.quadrants[i].name === category) {
+            var categoryEntries = [];
+            for (let k = 0; k < this.entries.length; k++) {
+        if (this.entries[k].quadrant === i) {
+          categoryEntries.push(this.entries[k]);
+        }
+      }
+            return categoryEntries;
+          }
+        }
     },
     toggleModal(item) {
 
@@ -204,31 +224,26 @@ export default {
         this.showByIndex[i] = -1;
       }
     },
-    checkCategory() {
-      console.log(this.category);
-      if (this.category === '') {
-        this.entries = this.radarData.entries;
-        this.rings = this.radarData.rings;
-      } else {
-        for (let i = 0; i < this.quadrants.length; i++) {
-          if (this.quadrants[i].name === this.category) {
-            var categoryEntries = [];
-            for (let k = 0; k < this.entries.length; k++) {
-        if (this.entries[k].quadrant === i) {
-          categoryEntries.push(this.entries[k]);
-        }
-      }
-            this.entries = categoryEntries;
-
-            // this.entries = this.entries[0];
-            // this.entries = this.entries.filter(this.filterCat(this.entries, i));
-          }
-        }
-      }
-    },
-    filterCat(entry, i) {
-      return entry.quadrant = i;
-    },
+    // checkCategory() {
+    //   console.log(this.category);
+    //   if (this.category === '') {
+    //     this.entries = this.radarData.entries;
+    //     this.rings = this.radarData.rings;
+    //   } else {
+    //     for (let i = 0; i < this.quadrants.length; i++) {
+    //       if (this.quadrants[i].name === this.category) {
+    //         var categoryEntries = [];
+    //         for (let k = 0; k < this.entries.length; k++) {
+    //     if (this.entries[k].quadrant === i) {
+    //       categoryEntries.push(this.entries[k]);
+    //     }
+    //   }
+    //         this.entries = categoryEntries;
+    //
+    //       }
+    //     }
+    //   }
+    // },
   }
 
 }

@@ -196,7 +196,7 @@
         <Radar :radarData="radarVisualization" />
       </div>
       <div :class="{'hidden': openTab !== 'Grid', 'block': openTab === 'Grid'}">
-        <Grid :radarData="radarVisualization" />
+        <Grid :radarData="radarVisualization" :all-categories="true" />
       </div>
       <div :class="{'hidden': openTab !== 'Quadrant', 'block': openTab === 'Quadrant'}">
         <Quadrant/>
