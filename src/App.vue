@@ -10,7 +10,7 @@
           Nam a congue elit. Maecenas ultrices lectus et eros mollis eleifend. Sed a nibh felis. Sed pulvinar, enim vel
           elementum vehicula, metus nulla commodo erat, quis posuere diam augue non nisl. </p>
 
-<!--        radar-display-toggle-->
+        <!--        radar-display-toggle-->
         <div class="md:inline-block hidden display-type-container pb-5 w-full">
           <div class="w-96 display-type-inner bg-mvp-gray-light rounded-full inline-block">
             <button @click="openTab = 'Radar'" :class="{'filter-button-active': openTab === 'Radar'}"
@@ -99,19 +99,19 @@
             <div class="icon text-base font-bold inline-block px-2">?</div>
           </div>
           <ul class="category-list pb-4">
-            <li class="category-item-container flex justify-between pb-1">
+            <li class="category-item-container flex justify-between mb-2">
               <span class="category-item w-full text-sm font-light">Tools</span>
               <div class="category-color rounded-full bg-mvp-green px-3 my-1"></div>
             </li>
-            <li class="category-item-container flex justify-between pb-1">
+            <li class="category-item-container flex justify-between mb-2">
               <span class="category-item w-full text-sm font-light">Platforms</span>
               <div class="category-color rounded-full bg-mvp-blue px-3 my-1"></div>
             </li>
-            <li class="category-item-container flex justify-between pb-1">
+            <li class="category-item-container flex justify-between mb-2">
               <span class="category-item w-full text-sm font-light">Methods & Patterns</span>
               <div class="category-color rounded-full bg-mvp-orange px-3 my-1"></div>
             </li>
-            <li class="category-item-container flex justify-between pb-1">
+            <li class="category-item-container flex justify-between mb-2">
               <span class="category-item w-full text-sm font-light">Languages & Frameworks</span>
               <div class="category-color rounded-full bg-mvp-purple px-3 my-1"></div>
             </li>
@@ -124,42 +124,38 @@
             <div class="icon text-base font-bold inline-block px-2">?</div>
           </div>
           <ul class="category-list pb-4">
-            <li class="category-item-container flex justify-between pb-1">
+            <li class="category-item-container flex justify-between mb-2">
               <span class="category-item w-full text-sm font-light">New or highlight</span>
               <div class="category-color rounded-full pr-1">
-                <svg class="inline-block text-white" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                     viewBox="0 0 24 24">
-                  <path
-                      d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
+                <svg width="16" height="16">
+                  <rect class="inline-block text-white" x="1" y="4" transform="rotate(45, 10, 10)" width="12"
+                        height="12" rx="1" ry="1" fill="currentColor"/>
+                  Sorry, your browser does not support inline SVG.
                 </svg>
               </div>
             </li>
-            <li class="category-item-container flex justify-between">
+            <li class="category-item-container flex justify-between mb-2">
               <span class="category-item w-full text-sm font-light">Moved inside</span>
               <div class="category-color rounded-full pr-1">
-                <svg class="inline-block text-white" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                     viewBox="0 0 24 24">
-                  <path
-                      d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                  <path class="text-white" d="M20 22h-24l12-20z" fill="currentColor"/>
                 </svg>
               </div>
             </li>
-            <li class="category-item-container flex justify-between">
+            <li class="category-item-container flex justify-between mb-2">
               <span class="category-item w-full text-sm font-light">Moved outside</span>
               <div class="category-color rounded-full pr-1">
-                <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                  <path color="white"
-                        d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                  <path class="text-white" d="M20 22h-24l12-20z" transform="rotate(180, 8, 8)" fill="currentColor"/>
                 </svg>
               </div>
             </li>
-            <li class="category-item-container flex justify-between">
+            <li class="category-item-container flex justify-between mb-2">
               <span class="category-item w-full text-sm font-light">No change</span>
               <div class="category-color rounded-full pr-1 text-white">
-                <svg class="inline-block text-white" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                     viewBox="0 0 24 24">
-                  <path
-                      d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
+                <svg height="16" width="16">
+                  <circle class="text-white" cx="8" cy="8" r="8" fill="currentColor"/>
+                  Sorry, your browser does not support inline SVG.
                 </svg>
               </div>
             </li>
@@ -193,10 +189,10 @@
     <!--    right section-->
     <section class="md:inline-block hidden col-span-6 p-6">
       <div :class="{'hidden': openTab !== 'Radar', 'block': openTab === 'Radar'}">
-        <Radar :radarData="radarVisualization" />
+        <Radar :radarData="radarVisualization"/>
       </div>
       <div :class="{'hidden': openTab !== 'Grid', 'block': openTab === 'Grid'}">
-        <Grid :radarData="radarVisualization" :all-categories="true" />
+        <Grid :radarData="radarVisualization" :all-categories="true"/>
       </div>
       <div :class="{'hidden': openTab !== 'Quadrant', 'block': openTab === 'Quadrant'}">
         <Quadrant/>
