@@ -4,7 +4,7 @@
     <section class="col-span-10 md:col-span-4 p-6 flex flex-col justify-between relative">
       <!--      title-section-->
       <div>
-        <h2 class="text-4xl font-light pb-2"><span class="font-bold">WEB 3</span> Technology radar</h2>
+        <h2 class="text-4xl font-normal pb-2"><span class="font-bold">WEB 3</span> Technology radar</h2>
         <p class="w-full md:w-96 inline-block text-sm font-light pb-5"> Lorem ipsum dolor sit amet, consectetur
           adipiscing elit.
           Nam a congue elit. Maecenas ultrices lectus et eros mollis eleifend. Sed a nibh felis. Sed pulvinar, enim vel
@@ -42,13 +42,13 @@
 
       </div>
       <!--      bottom-left-section-->
-      <div class="w-full lg:w-4/5 xl:w-3/5 2xl:w-2/5 mb-5">
+      <div class="w-full lg:w-4/5 xl:w-3/5 2xl:w-2/5 mb-5 md:mb-0">
         <!--        mobile category buttons-->
         <section class="md:hidden categories-mobile grid gap-1 grid-cols-2 w-full mb-5">
           <!--          :class="{'button-cat-active': openCat === 'tools'}"-->
           <button @click="toggleMobileGridModal('Tools')"
                   class="overflow-hidden relative p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
-            <span class="absolute bottom-3 left-3 leading-6 text-base font-bold"> Tools </span>
+            <span class="absolute bottom-3 left-3 leading-6 text-base font-normal"> Tools </span>
             <svg class="absolute bottom-0 right-0 " height="50" width="50">
               <circle class="text-mvp-green opacity-40" cx="50" cy="50" r="50" fill="currentColor"/>
               <circle class="text-mvp-green opacity-60" cx="50" cy="50" r="40" fill="currentColor"/>
@@ -66,12 +66,12 @@
               <circle class="text-mvp-blue" cx="0" cy="50" r="20" fill="currentColor"/>
               Sorry, your browser does not support inline SVG.
             </svg>
-            <span class="absolute bottom-3 right-3 leading-6 text-base font-bold"> Platforms </span>
+            <span class="absolute bottom-3 right-3 leading-6 text-base font-normal"> Platforms </span>
           </button>
           <button @click="toggleMobileGridModal('Methods & Patterns')"
                   class="overflow-hidden relative p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
             <span
-                class="absolute bottom-3 left-3 text-left leading-6 text-base font-bold w-32"> Methods & Patterns </span>
+                class="absolute bottom-3 left-3 text-left leading-6 text-base font-normal w-32"> Methods & Patterns </span>
             <svg class="absolute top-0 right-0 " height="50" width="50">
               <circle class="text-mvp-orange opacity-40" cx="50" cy="0" r="50" fill="currentColor"/>
               <circle class="text-mvp-orange opacity-60" cx="50" cy="0" r="40" fill="currentColor"/>
@@ -89,7 +89,7 @@
               <circle class="text-mvp-purple" cx="0" cy="0" r="20" fill="currentColor"/>
               Sorry, your browser does not support inline SVG.
             </svg>
-            <span class="absolute bottom-3 right-3 text-right leading-6 text-base font-bold w-32"> Languages & Frameworks </span>
+            <span class="absolute bottom-3 right-3 text-right leading-6 text-base font-normal w-32"> Languages & Frameworks </span>
           </button>
         </section>
         <!--        desktop category list-->
@@ -165,15 +165,15 @@
         <div class="user-buttons-container pb-10 md:pb-0">
           <button @click="toggleInstructionModal()"
                   class="flex align-middle justify-center items-center py-1 px-2 w-full button bg-mvp-gray-light filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
-            <span class="leading-6 text-base font-bold"> How to read this radar? </span>
+            <span class="leading-6 text-base font-normal"> How to read this radar? </span>
           </button>
           <button @click="togglePropositionFormModal()"
                   class="flex align-middle justify-center items-center py-1 px-2 w-full button bg-mvp-gray-light filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
-            <span class="leading-6 text-base font-bold"> Propose new tech! </span>
+            <span class="leading-6 text-base font-normal"> Propose new tech! </span>
           </button>
           <button @click="toggleTechListModal()"
                   class="flex align-middle justify-center items-center py-1 px-2 w-full button bg-mvp-gray-light filter-button filter-button-active rounded-full mb-2">
-            <span class="leading-6 text-base font-bold"> My tech list (3) </span>
+            <span class="leading-6 text-base font-normal"> My tech list (3) </span>
           </button>
         </div>
       </div>

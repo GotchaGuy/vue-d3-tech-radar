@@ -4,7 +4,7 @@
       <div v-for="(ring, i) in rings" class="col-span-1 mx-1" :key="i">
         <div class="cursor-pointer p-2 bg-mvp-gray-light text-center w-full" :id="'ring-' + i"
              @click="toggleRing(ring, i)">
-          <h3 class="text-base font-bold capitalize">{{ ring.name }}</h3>
+          <h3 class="text-base font-normal capitalize">{{ ring.name }}</h3>
         </div>
         <ul class="ring-list">
           <li v-for="(ringItem, j) in getRingEntries(entries, i, category)"
@@ -15,7 +15,7 @@
             <!--                class="radarData.quadrants[ringItem[j].quadrant].color"-->
             <div class="flex align-middle" @click="toggleSingleItem(ringItem, i, j); toggleDropDown(i, j)">
               <div class="inline-block category-color rounded-full p-2 mx-2 my-auto h-2 bg-mvp-green"></div>
-              <span class="font-bold"> {{ ringItem.label }} </span>
+              <span class="font-normal"> {{ ringItem.label }} </span>
             </div>
 
             <div v-if="showByIndex[i] === j"

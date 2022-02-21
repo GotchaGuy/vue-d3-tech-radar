@@ -1,6 +1,6 @@
 <template>
   <section v-if="displayed"
-           class="sidebar-modal-component h-screen sm:w-full md:w-2/5 bg-mvp-gray-darker overflow-auto fixed bottom-0">
+           class="sidebar-modal-component h-screen sm:w-full md:w-2/5 bg-mvp-gray-darker overflow-auto fixed bottom-0 z-5">
     <div class="md:hidden p-6 bg-gray-200 opacity-40 h-32"></div>
     <div class="p-6 bg-mvp-gray-darker h-full">
       <div class="flex justify-between items-start">
@@ -30,7 +30,7 @@
         <li class="info-item-container rounded-sm my-1 " v-for="(infoItem, i) in infoList" :key="i"
             @click="infoItem.active = !infoItem.active" :class="(infoItem.active) ? 'bg-mvp-gray-light' : ''">
           <div class="flex justify-between p-2 rounded-sm cursor-pointer group hover:bg-mvp-gray-light">
-            <span class="category-item w-full text-md font-bold"> {{ infoItem.title }}</span>
+            <span class="category-item w-full text-md font-normal"> {{ infoItem.title }}</span>
             <div
                 class="rounded-full text-mvp-purple group-hover:text-purple-500 flex align-middle justify-center items-center"
                 :class="(infoItem.active) ? 'transform rotate-180' : ''">

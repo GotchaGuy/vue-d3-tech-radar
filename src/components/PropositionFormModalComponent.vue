@@ -1,5 +1,5 @@
 <template>
-  <section v-if="displayed" class="sidebar-modal-component h-screen sm:w-full md:w-2/5 bg-mvp-gray-darker overflow-auto fixed bottom-0">
+  <section v-if="displayed" class="sidebar-modal-component h-screen sm:w-full md:w-2/5 bg-mvp-gray-darker overflow-auto fixed bottom-0 z-5">
     <div class="md:hidden p-6 bg-gray-200 opacity-40 h-32"></div>
   <div class="p-6 bg-mvp-gray-darker h-full">
     <div class="flex justify-between items-start">
@@ -31,7 +31,7 @@
       </p>
     </div>
     <div class="proposition-form pb-6 w-full">
-      <form action="" class="w-96 md:mx-auto">
+      <form action="" class="w-96 mx-auto md:mx-0">
         <input class="w-full bg-transparent border-b-4 border-b-gray-300 pl-0 p-1 my-2" required type="text" placeholder="Project or technology name">
         <select class="w-full bg-transparent border-b-4 border-b-gray-300 pl-0 p-1 my-2" required name="category" id="category" placeholder="Category">
           <option class="bg-mvp-gray-dark" value="tools">Tools</option>
