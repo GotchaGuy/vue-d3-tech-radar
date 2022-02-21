@@ -14,23 +14,23 @@
         <div class="md:inline-block hidden display-type-container pb-5 w-full">
           <div class="w-96 display-type-inner bg-mvp-gray-light rounded-full inline-block">
             <button @click="openTab = 'Radar'" :class="{'filter-button-active': openTab === 'Radar'}"
-                    class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full border-2 border-transparent hover:border-white">
-              <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
-                <path
-                    d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
+                    class="flex align-middle justify-center items-center py-1 px-1 w-1/3 button filter-button rounded-full border-2 border-transparent hover:border-white">
+              <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                <circle fill-opacity="0" cx="15" cy="15" r="13" stroke="currentColor" stroke-width="2"/>
+                <circle fill-opacity="0" cx="15" cy="15" r="9" stroke="currentColor" stroke-width="2"/>
+                <circle fill-opacity="0" cx="15" cy="15" r="5" stroke="currentColor"  stroke-width="2"/>
+                <line x1="0" y1="15" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
               </svg>
               <span class="leading-6 text-base font-bold"> Radar </span>
             </button>
             <button @click="openTab = 'Grid'" :class="{'filter-button-active': openTab === 'Grid'}"
-                    class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full  border-2 border-transparent hover:border-white">
-              <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
-                <path
-                    d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
-              </svg>
+                    class="flex align-middle justify-center items-center py-1 px-1 w-1/3 button filter-button rounded-full  border-2 border-transparent hover:border-white">
+              <svg class="inline-block align-middle" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                <path fill="currentColor" d="M6 6h-6v-6h6v6zm9-6h-6v6h6v-6zm9 0h-6v6h6v-6zm-18 9h-6v6h6v-6zm9 0h-6v6h6v-6zm9 0h-6v6h6v-6zm-18 9h-6v6h6v-6zm9 0h-6v6h6v-6zm9 0h-6v6h6v-6z"/></svg>
               <span class="leading-6 text-base font-bold"> Grid </span>
             </button>
             <button @click="openTab = 'Quadrant'" :class="{'filter-button-active': openTab === 'Quadrant'}"
-                    class="flex align-middle justify-center items-center py-1 px-2 w-1/3 button filter-button rounded-full  border-2 border-transparent hover:border-white">
+                    class="flex align-middle justify-center items-center py-1 px-1 w-1/3 button filter-button rounded-full  border-2 border-transparent hover:border-white">
               <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
                 <path
                     d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>

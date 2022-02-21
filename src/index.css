@@ -9,7 +9,7 @@
 body {
   margin: 0;
   /*-apple-system, BlinkMacSystemFont*/
-  font-family: 'Space Mono', 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Space Mono', monospace, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
 }
@@ -62,7 +62,7 @@ p, h1, h2, h3, div {
 /*}*/
 
 .filter-button-active {
-  border: 1px solid white;
+  border: 2px solid white;
   background-color: white;
   color: #333338;
 }
