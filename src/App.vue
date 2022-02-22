@@ -4,17 +4,17 @@
     <section class="col-span-10 md:col-span-4 p-6 flex flex-col justify-between relative">
       <!--      title-section-->
       <div>
-        <h2 class="text-4xl font-normal pb-2"><span class="font-bold">WEB 3</span> Technology radar</h2>
-        <p class="w-full md:w-96 inline-block text-sm font-light pb-5"> Lorem ipsum dolor sit amet, consectetur
+        <h2 class="text-4xl font-normal pb-2"><span class="font-bold">WEB3</span> Technology radar</h2>
+        <p class="w-full md:w-96 inline-block text-sm font-light pb-5 text-gray-400"> Lorem ipsum dolor sit amet, consectetur
           adipiscing elit.
           Nam a congue elit. Maecenas ultrices lectus et eros mollis eleifend. Sed a nibh felis. Sed pulvinar, enim vel
           elementum vehicula, metus nulla commodo erat, quis posuere diam augue non nisl. </p>
 
         <!--        radar-display-toggle-->
         <div class="md:inline-block hidden display-type-container pb-5 w-full">
-          <div class="w-96 display-type-inner bg-mvp-gray-light rounded-full inline-block">
+          <div class="display-type-inner bg-mvp-gray-light rounded-full inline-block">
             <button @click="openTab = 'Radar'" :class="{'filter-button-active': openTab === 'Radar'}"
-                    class="flex align-middle justify-center items-center py-1 px-1 w-1/3 button filter-button rounded-full border-2 border-transparent hover:border-white">
+                    class="flex align-middle justify-center items-center py-1 px-1 w-32 button filter-button rounded-full border-2 border-transparent hover:border-white">
               <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
                 <circle fill-opacity="0" cx="15" cy="15" r="13" stroke="currentColor" stroke-width="2"/>
                 <circle fill-opacity="0" cx="15" cy="15" r="9" stroke="currentColor" stroke-width="2"/>
@@ -24,16 +24,15 @@
               <span class="leading-6 text-base font-bold"> Radar </span>
             </button>
             <button @click="openTab = 'Grid'" :class="{'filter-button-active': openTab === 'Grid'}"
-                    class="flex align-middle justify-center items-center py-1 px-1 w-1/3 button filter-button rounded-full  border-2 border-transparent hover:border-white">
+                    class="flex align-middle justify-center items-center py-1 px-1 w-32 button filter-button rounded-full  border-2 border-transparent hover:border-white">
               <svg class="inline-block align-middle" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
                 <path fill="currentColor" d="M6 6h-6v-6h6v6zm9-6h-6v6h6v-6zm9 0h-6v6h6v-6zm-18 9h-6v6h6v-6zm9 0h-6v6h6v-6zm9 0h-6v6h6v-6zm-18 9h-6v6h6v-6zm9 0h-6v6h6v-6zm9 0h-6v6h6v-6z"/></svg>
               <span class="leading-6 text-base font-bold"> Grid </span>
             </button>
             <button @click="openTab = 'Quadrant'" :class="{'filter-button-active': openTab === 'Quadrant'}"
-                    class="flex align-middle justify-center items-center py-1 px-1 w-1/3 button filter-button rounded-full  border-2 border-transparent hover:border-white">
-              <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
-                <path
-                    d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
+                    class="flex align-middle justify-center items-center py-1 px-1 w-40 button filter-button rounded-full  border-2 border-transparent hover:border-white">
+              <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                <path stroke="currentColor" stroke-width="2" fill="none" xmlns="http://www.w3.org/2000/svg" d="M0.50799,27.5C0.11906,14.5673,13.95048,-0.53623,27.50001,0.55584v26.94416h-28.99202Z"/>
               </svg>
               <span class="leading-6 text-base font-bold"> Quadrant </span>
             </button>
@@ -179,7 +178,7 @@
       </div>
 
       <!--      made with <3-->
-      <div class="bg-gray-700 p-3 rounded-lg text-center md:text-right inline-block md:fixed md:bottom-8 md:right-8">
+      <div class="bg-gray-800 p-3 rounded-lg text-center md:text-right inline-block md:fixed md:bottom-8 md:right-8">
         <h3 class="text-base font-bold">Made with <span class="text-red-500">&hearts;</span> by 3327</h3>
         <span class="text-sm font-bold text-gray-500">Web 3 tech vanguards</span>
       </div>

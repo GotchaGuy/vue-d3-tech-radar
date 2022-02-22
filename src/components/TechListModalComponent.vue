@@ -4,7 +4,8 @@
     <div class="md:hidden p-6 bg-gray-200 opacity-40 h-32"></div>
     <div class="p-6 bg-mvp-gray-darker h-full">
       <div class="flex justify-between items-start">
-        <h3 class="md:inline-block hidden text-lg font-light pb-2 text-gray-300"><span class="font-bold">WEB 3</span> Technology radar </h3>
+        <h3 class="md:inline-block hidden text-lg font-light pb-2 text-gray-300"><span class="font-bold">WEB3</span>
+          Technology radar </h3>
         <h2 class="md:hidden text-lg font-bold pb-2 text-gray-100"> My tech list </h2>
         <button @click="displayed = false" class="x-button text-gray-300 hover:text-gray-100">
           <svg
@@ -30,66 +31,26 @@
         </p>
       </div>
       <div class="tech-list pb-6">
-        <div class="tech-item bg-mvp-gray-light my-2 p-3 cursor-pointer hover:bg-gray-800" style="border-radius: 15px">
-          <h3 class="text-2xl font-bold pl-2">zk-SNARKs</h3>
-          <div class="flex justify-start">
-            <div
-                class="flex align-middle justify-center items-center py-1 px-2 mr-2 rounded-full hover:bg-mvp-gray-dark">
-              <svg class="inline-block mr-2" xmlns="http://www.w3.org/2000/svg" width="21" height="21"
-                   viewBox="0 0 24 24">
-                <path
-                    d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
-              </svg>
-              <span class="leading-6 text-base font-bold"> Trial stage </span>
-            </div>
-            <div
-                class="flex align-middle justify-center items-center py-1 px-2 mr-2 rounded-full hover:bg-mvp-gray-dark">
-              <svg class="inline-block mr-2" xmlns="http://www.w3.org/2000/svg" width="21" height="21"
-                   viewBox="0 0 24 24">
-                <path
-                    d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
-              </svg>
-              <span class="leading-6 text-base font-bold"> New item </span>
-            </div>
-            <div
-                class="flex align-middle justify-center items-center py-1 px-2 mr-2 rounded-full hover:bg-mvp-gray-dark">
-              <div class="category-color rounded-full bg-mvp-green h-2 px-3 py-2 mr-2"></div>
-              <span class="leading-6 text-base font-bold"> Tools </span>
+        <div v-for="(blip, i) in currentList" :key="i" @click="toggleActive(blip, i)"
+             :class="(!blip.active) ? 'opacity-40' : ''"
+             class="group tech-item bg-mvp-gray-dark my-2 p-3 cursor-pointer hover:bg-mvp-gray-light"
+             style="border-radius: 15px">
+          <div class="flex justify-between pl-2">
+            <h3 class="text-2xl font-bold inline-block"> {{ blip.label }} </h3>
+            <!--            invisible group-hover:visible-->
+            <div class="relative">
+              <div class="hidden text-xs bg-black text-white bg-opacity-80 p-1 absolute -top-7 -left-20 rounded shadow-xl w-32" :id="'tooltip-' + i">
+                Remove from list
+              </div>
+              <button class="text-gray-300" :id="'bookmark-' + i" @mouseenter="toggleTooltip(i)" @mouseleave="toggleTooltip(i)">
+                <svg class="inline-block text-white hover:text-gray-200" width="24" height="24"
+                     xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+                     clip-rule="evenodd" preserveAspectRatio="none" viewBox="0 0 24 24">
+                  <path class="" fill="currentColor" stroke="currentColor" d="M18 24l-6-5.269-6 5.269v-24h12v24z"/>
+                </svg>
+              </button>
             </div>
           </div>
-        </div>
-
-        <div class="tech-item bg-mvp-gray-light my-2 p-3 cursor-pointer hover:bg-gray-800" style="border-radius: 15px">
-          <h3 class="text-2xl font-bold pl-2">zk-SNARKs</h3>
-          <div class="flex justify-start">
-            <div
-                class="flex align-middle justify-center items-center py-1 px-2 mr-2 rounded-full hover:bg-mvp-gray-dark">
-              <svg class="inline-block mr-2" xmlns="http://www.w3.org/2000/svg" width="21" height="21"
-                   viewBox="0 0 24 24">
-                <path
-                    d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
-              </svg>
-              <span class="leading-6 text-base font-bold"> Trial stage </span>
-            </div>
-            <div
-                class="flex align-middle justify-center items-center py-1 px-2 mr-2 rounded-full hover:bg-mvp-gray-dark">
-              <svg class="inline-block mr-2" xmlns="http://www.w3.org/2000/svg" width="21" height="21"
-                   viewBox="0 0 24 24">
-                <path
-                    d="M12 3c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/>
-              </svg>
-              <span class="leading-6 text-base font-bold"> New item </span>
-            </div>
-            <div
-                class="flex align-middle justify-center items-center py-1 px-2 mr-2 rounded-full hover:bg-mvp-gray-dark">
-              <div class="category-color rounded-full bg-mvp-green h-2 px-3 py-2 mr-2"></div>
-              <span class="leading-6 text-base font-bold"> Tools </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="tech-item bg-mvp-gray-light my-2 p-3 cursor-pointer hover:bg-gray-800" style="border-radius: 15px">
-          <h3 class="text-2xl font-bold pl-2">zk-SNARKs</h3>
           <div class="flex justify-start">
             <div
                 class="flex align-middle justify-center items-center py-1 px-2 mr-2 rounded-full hover:bg-mvp-gray-dark">
@@ -131,8 +92,30 @@ export default {
   props: {},
   data() {
     return {
-      displayed: false,
-
+      displayed: true,
+      currentList: [
+        {
+          "quadrant": 3,
+          "ring": 2,
+          "label": "Item with long name",
+          "active": true,
+          "moved": 0
+        },
+        {
+          "quadrant": 3,
+          "ring": 3,
+          "label": "AWS Data Pipeline",
+          "active": true,
+          "moved": 0
+        },
+        {
+          "quadrant": 3,
+          "ring": 0,
+          "label": "AWS EMR",
+          "active": true,
+          "moved": 0
+        },
+      ],
     }
   },
   mounted() {
@@ -140,7 +123,32 @@ export default {
       this.displayed = data.displayed;
     });
   },
-  methods: {},
+  methods: {
+    toggleActive(blip, i) {
+      this.currentBlip = i;
+
+      for (let k = 0; k < this.currentList.length; k++) {
+        // instead of .label it will be .id when we connect to db
+        if (this.currentList[k].label !== blip.label) {
+          if (blip.active === false) {
+            blip.active = true;
+            // document.getElementById('blip-' + [k]).classList.remove("invisible");
+            this.currentList[k].active = false;
+          } else {
+            if (this.currentBlip === this.previousBlip) {
+              this.currentList[k].active = !this.currentList[k].active;
+            } else {
+              this.currentList[k].active = false;
+            }
+          }
+        }
+      }
+      this.previousBlip = i;
+    },
+    toggleTooltip(i) {
+      document.querySelector('#tooltip-' + i).classList.toggle("hidden");
+    }
+  },
 
 }
 </script>

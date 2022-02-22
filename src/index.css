@@ -97,3 +97,7 @@ p, h1, h2, h3, div {
   height: 85vh;
   overflow: auto;
 }
+
+.hide {
+  display: none;
+}

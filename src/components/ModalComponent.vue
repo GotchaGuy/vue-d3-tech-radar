@@ -4,7 +4,7 @@
     <div class="md:hidden p-6 bg-gray-200 opacity-40 h-32"></div>
     <div class="p-6 bg-mvp-gray-darker h-full">
       <div class="flex justify-between items-start">
-        <h3 class="md:inline-block hidden text-lg font-light pb-2 text-gray-300"><span class="font-bold">WEB 3</span>
+        <h3 class="md:inline-block hidden text-lg font-light pb-2 text-gray-300"><span class="font-bold">WEB3</span>
           Technology radar</h3>
         <h2 class="md:hidden text-lg font-bold pb-2 text-gray-100"> {{ item.label }} </h2>
         <button @click="displayed = false" class="x-button text-gray-300 hover:text-gray-100">
