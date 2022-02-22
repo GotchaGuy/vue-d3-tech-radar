@@ -32,6 +32,7 @@
       </div>
       <div class="tech-list pb-6">
         <div v-for="(blip, i) in cachedList" :key="i" @click="toggleActive(blip, i)"
+             @mouseenter="toggleBookmark(i)" @mouseleave="toggleBookmark(i)"
              :class="(!blip.active) ? 'opacity-40' : ''"
              class="group tech-item bg-mvp-gray-dark my-2 p-3 cursor-pointer hover:bg-mvp-gray-light"
              style="border-radius: 15px">
@@ -44,8 +45,8 @@
                   :id="'tooltip-' + i">
                 Remove from list
               </div>
-              <button class="text-gray-300" :id="'bookmark-' + i" @mouseenter="toggleTooltip(i)"
-                      @mouseleave="toggleTooltip(i)" @click="removeBlip(i)">
+              <button class="hidden text-gray-300" :id="'bookmark-' + i" @click="removeBlip(i)"
+                      @mouseenter="toggleTooltip(i)" @mouseleave="toggleTooltip(i)">
                 <svg class="inline-block text-white hover:text-gray-200" width="24" height="24"
                      xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
                      clip-rule="evenodd" preserveAspectRatio="none" viewBox="0 0 24 24">
@@ -137,18 +138,17 @@ export default {
     toggleActive(blip, i) {
       this.currentBlip = i;
 
-      for (let k = 0; k < this.currentList.length; k++) {
+      for (let k = 0; k < this.cachedList.length; k++) {
         // instead of .label it will be .id when we connect to db
-        if (this.currentList[k].label !== blip.label) {
+        if (this.cachedList[k].label !== blip.label) {
           if (blip.active === false) {
             blip.active = true;
-            // document.getElementById('blip-' + [k]).classList.remove("invisible");
-            this.currentList[k].active = false;
+            this.cachedList[k].active = false;
           } else {
             if (this.currentBlip === this.previousBlip) {
-              this.currentList[k].active = !this.currentList[k].active;
+              this.cachedList[k].active = !this.cachedList[k].active;
             } else {
-              this.currentList[k].active = false;
+              this.cachedList[k].active = false;
             }
           }
         }
@@ -158,6 +158,9 @@ export default {
     toggleTooltip(i) {
       document.querySelector('#tooltip-' + i).classList.toggle("hidden");
     },
+    toggleBookmark(i) {
+      document.querySelector('#bookmark-' + i).classList.toggle("hidden");
+    },
     removeBlip(i) {
       this.cachedList.splice(i, 1);
       this.saveCachedList();
@@ -166,26 +169,15 @@ export default {
       const parsed = JSON.stringify(this.cachedList);
       localStorage.setItem('techList', parsed);
     },
-    isSaved() {
-      if (!this.cachedList) {
-        return;
-      }
-      for (let i = 0; i < this.cachedList.length; i++) {
-        if (this.cachedList[i].label === this.item.label) {
-          this.saveable = false;
+    updateList() {
+      if (localStorage.getItem('techList')) {
+        try {
+          this.cachedList = JSON.parse(localStorage.getItem('techList'));
+        } catch (e) {
+          localStorage.removeItem('techList');
         }
       }
     },
-    updateList() {
-      if (localStorage.getItem('techList')) {
-      try {
-        this.cachedList = JSON.parse(localStorage.getItem('techList'));
-        console.log(this.cachedList);
-      } catch (e) {
-        localStorage.removeItem('techList');
-      }
-    }
-    }
   },
 
 }

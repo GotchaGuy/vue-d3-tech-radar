@@ -145,7 +145,7 @@ export default {
 
       this.emitter.emit("toggle-modal", {
         displayed: !this.modalDisplay,
-        item: item
+        item: item,
       });
 
     },

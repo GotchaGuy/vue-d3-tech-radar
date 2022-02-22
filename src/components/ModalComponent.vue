@@ -128,21 +128,17 @@ export default {
     }
   },
   mounted() {
-    if (localStorage.getItem('techList')) {
-      try {
-        this.cachedList = JSON.parse(localStorage.getItem('techList'));
-        // console.log(this.cachedList);
-
-      } catch(e) {
-        localStorage.removeItem('techList');
-      }
-    }
+    this.updateList();
 
     this.emitter.on("toggle-modal", (data) => {
       this.displayed = data.displayed;
       this.item = data.item;
       this.isSaved();
     });
+
+    // this.item.addEventListener("change", function () {
+    //   this.isSaved();
+    // });
   },
   // updated() {
   //   this.isSaved();
@@ -168,11 +164,23 @@ export default {
       }
       for (let i = 0; i < this.cachedList.length; i++) {
         if (this.cachedList[i].label === this.item.label) {
-          // console.log('cached: ' + this.cachedList[i].label + ' currentItem: ' + this.item.label)
+          console.log('cached: ' + this.cachedList[i].label + ' currentItem: ' + this.item.label)
           this.saveable = false;
+          return;
         }
       }
-    }
+      this.saveable = true;
+    },
+    updateList() {
+      if (localStorage.getItem('techList')) {
+        try {
+          this.cachedList = JSON.parse(localStorage.getItem('techList'));
+          console.log(this.cachedList);
+        } catch (e) {
+          localStorage.removeItem('techList');
+        }
+      }
+    },
   },
 
 }
