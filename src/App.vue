@@ -1,17 +1,17 @@
 <template>
   <div class="main-section grid grid-cols-10">
     <!--    left section-->
-    <section class="col-span-10 md:col-span-4 p-6 flex flex-col justify-between relative">
+    <section class="col-span-10 lg:col-span-4 p-6 flex flex-col justify-between relative">
       <!--      title-section-->
       <div>
         <h2 class="text-4xl font-normal pb-2"><span class="font-bold">WEB3</span> Technology radar</h2>
-        <p class="w-full md:w-96 inline-block text-sm font-light pb-5 text-gray-400"> Lorem ipsum dolor sit amet, consectetur
+        <p class="w-full lg:w-96 inline-block text-sm font-light pb-5 text-gray-400"> Lorem ipsum dolor sit amet, consectetur
           adipiscing elit.
           Nam a congue elit. Maecenas ultrices lectus et eros mollis eleifend. Sed a nibh felis. Sed pulvinar, enim vel
           elementum vehicula, metus nulla commodo erat, quis posuere diam augue non nisl. </p>
 
         <!--        radar-display-toggle-->
-        <div class="md:inline-block hidden display-type-container pb-5 w-full">
+        <div class="lg:inline-block hidden display-type-container pb-5 w-full">
           <div class="display-type-inner bg-mvp-gray-light rounded-full inline-block">
             <button @click="openTab = 'Radar'" :class="{'filter-button-active': openTab === 'Radar'}"
                     class="flex align-middle justify-center items-center py-1 px-1 w-32 button filter-button rounded-full border-2 border-transparent hover:border-white">
@@ -25,9 +25,9 @@
             </button>
             <button @click="openTab = 'Grid'" :class="{'filter-button-active': openTab === 'Grid'}"
                     class="flex align-middle justify-center items-center py-1 px-1 w-32 button filter-button rounded-full  border-2 border-transparent hover:border-white">
-              <svg class="inline-block align-middle" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+              <svg class="inline-block align-middle" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 -4 30 30">
                 <path fill="currentColor" d="M6 6h-6v-6h6v6zm9-6h-6v6h6v-6zm9 0h-6v6h6v-6zm-18 9h-6v6h6v-6zm9 0h-6v6h6v-6zm9 0h-6v6h6v-6zm-18 9h-6v6h6v-6zm9 0h-6v6h6v-6zm9 0h-6v6h6v-6z"/></svg>
-              <span class="leading-6 text-base font-bold"> Grid </span>
+              <span class="leading-6 text-base font-bold mt-1"> Grid </span>
             </button>
             <button @click="openTab = 'Quadrant'" :class="{'filter-button-active': openTab === 'Quadrant'}"
                     class="flex align-middle justify-center items-center py-1 px-1 w-40 button filter-button rounded-full  border-2 border-transparent hover:border-white">
@@ -41,9 +41,9 @@
 
       </div>
       <!--      bottom-left-section-->
-      <div class="w-full lg:w-4/5 xl:w-3/5 2xl:w-2/5 mb-5 md:mb-0">
+      <div class="w-full lg:w-4/5 xl:w-3/5 2xl:w-2/5 mb-5 lg:mb-0">
         <!--        mobile category buttons-->
-        <section class="md:hidden categories-mobile grid gap-1 grid-cols-2 w-full mb-5">
+        <section class="lg:hidden categories-mobile grid gap-1 grid-cols-2 w-full mb-5">
           <!--          :class="{'button-cat-active': openCat === 'tools'}"-->
           <button @click="toggleMobileGridModal('Tools')"
                   class="overflow-hidden relative p-2 basis-1/2 h-24 bg-mvp-gray-darker button rounded-lg border-2 border-transparent hover:border-white">
@@ -92,7 +92,7 @@
           </button>
         </section>
         <!--        desktop category list-->
-        <section class="md:inline-block hidden categories w-full">
+        <section class="lg:inline-block hidden categories w-full">
           <div class="flex justify-between pb-2">
             <h3 class="text-base font-bold inline-block">Categories</h3>
             <div class="icon text-base font-bold inline-block px-2">?</div>
@@ -117,7 +117,7 @@
           </ul>
         </section>
         <!--        desktop status list-->
-        <section class="md:inline-block hidden statuses w-full">
+        <section class="lg:inline-block hidden statuses w-full">
           <div class="flex justify-between pb-2">
             <h3 class="text-base font-bold inline-block">Statuses</h3>
             <div class="icon text-base font-bold inline-block px-2">?</div>
@@ -161,7 +161,7 @@
           </ul>
         </section>
         <!--        user buttons-->
-        <div class="user-buttons-container pb-10 md:pb-0">
+        <div class="user-buttons-container pb-10 lg:pb-0">
           <button @click="toggleInstructionModal()"
                   class="flex align-middle justify-center items-center py-1 px-2 w-full button bg-mvp-gray-light filter-button rounded-full mb-2 border-2 border-transparent hover:border-white">
             <span class="leading-6 text-base font-normal"> How to read this radar? </span>
@@ -178,7 +178,7 @@
       </div>
 
       <!--      made with <3-->
-      <div class="bg-gray-800 p-3 rounded-lg text-center md:text-right inline-block md:fixed md:bottom-8 md:right-8">
+      <div class="bg-gray-800 p-3 rounded-lg text-center lg:text-right inline-block lg:fixed lg:bottom-8 lg:right-8">
         <h3 class="text-base font-bold">Made with <span class="text-red-500">&hearts;</span> by 3327</h3>
         <span class="text-sm font-bold text-gray-500">Web 3 tech vanguards</span>
       </div>
@@ -186,7 +186,7 @@
     </section>
 
     <!--    right section-->
-    <section class="md:inline-block hidden col-span-6 p-6">
+    <section class="lg:inline-block hidden col-span-6 p-6">
       <div :class="{'hidden': openTab !== 'Radar', 'block': openTab === 'Radar'}">
         <Radar :radarData="radarVisualization"/>
       </div>

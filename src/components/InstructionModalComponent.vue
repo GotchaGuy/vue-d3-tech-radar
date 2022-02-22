@@ -1,11 +1,11 @@
 <template>
   <section v-if="displayed"
-           class="sidebar-modal-component h-screen sm:w-full md:w-2/5 bg-mvp-gray-darker overflow-auto fixed bottom-0 z-5">
-    <div class="md:hidden p-6 bg-gray-200 opacity-40 h-32"></div>
+           class="sidebar-modal-component h-screen sm:w-full lg:w-2/5 overflow-auto fixed bottom-0 z-5">
+    <div class="lg:hidden p-6 bg-gray-200 opacity-40 h-32"></div>
     <div class="p-6 bg-mvp-gray-darker h-full">
       <div class="flex justify-between items-start">
-        <h3 class="md:inline-block hidden text-lg font-light pb-2 text-gray-300"><span class="font-bold">WEB3</span> Technology radar </h3>
-        <h2 class="md:hidden text-lg font-bold pb-2 text-gray-100"> What is Web3 tech radar and how to read it?  </h2>
+        <h3 class="lg:inline-block hidden text-lg font-light pb-2 text-gray-300"><span class="font-bold">WEB3</span> Technology radar </h3>
+        <h2 class="lg:hidden text-lg font-bold pb-2 text-gray-100"> What is Web3 tech radar and how to read it?  </h2>
         <button @click="displayed = false" class="x-button text-gray-300 hover:text-gray-100">
           <svg
               class="x-button-icon"
@@ -22,7 +22,7 @@
           </svg>
         </button>
       </div>
-      <h2 class="md:inline-block hidden text-4xl font-bold"> What is Web3 tech radar and how to read it? </h2>
+      <h2 class="lg:inline-block hidden text-4xl font-bold"> What is Web3 tech radar and how to read it? </h2>
       <div class="about-info pb-6">
 
       </div>

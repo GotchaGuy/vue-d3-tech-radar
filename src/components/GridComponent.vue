@@ -1,10 +1,10 @@
 <template>
   <section>
-    <div class="grid grid-cols-1 md:grid-cols-4 container mx-auto w-full md:w-6/7 2xl:w-4/5">
+    <div class="grid grid-cols-1 lg:grid-cols-4 container mx-auto w-full lg:w-6/7 2xl:w-4/5">
       <div v-for="(ring, i) in rings" class="col-span-1 mx-1" :key="i">
         <div class="cursor-pointer p-2 bg-mvp-gray-light text-center w-full" :id="'ring-' + i"
              @click="toggleRing(ring, i)">
-          <h3 class="text-base font-normal capitalize">{{ ring.name }}</h3>
+          <h3 class="text-base font-normal break-row capitalize">{{ ring.name }}</h3>
         </div>
         <ul class="ring-list">
           <li v-for="(ringItem, j) in getRingEntries(entries, i, category)"
