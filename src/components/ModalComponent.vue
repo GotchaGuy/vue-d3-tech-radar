@@ -92,12 +92,19 @@
           </button>
         </div>
       </div>
-      <button
-          class="flex align-middle justify-center items-center py-1 px-5 button filter-button filter-button-active rounded-full mb-2">
-        <svg class="inline-block"  width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" preserveAspectRatio="none" viewBox="0 0 24 24">
+      <button @click="addBlip()"
+              class="flex align-middle justify-center items-center py-1 px-5 button filter-button filter-button-active rounded-full mb-2">
+        <svg v-if="saveable" class="inline-block" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+             clip-rule="evenodd" preserveAspectRatio="none" viewBox="0 0 24 24">
           <path d="M5 0v24l7-6 7 6v-24h-14zm1 1h12v20.827l-6-5.144-6 5.144v-20.827z"/>
         </svg>
-        <span class="leading-6 text-base font-bold"> Save to my tech list </span>
+        <svg v-if="!saveable" class="inline-block text-black" width="24" height="24"
+                     xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+                     clip-rule="evenodd" preserveAspectRatio="none" viewBox="0 0 24 24">
+                  <path class="" fill="currentColor" stroke="currentColor" d="M18 24l-6-5.269-6 5.269v-24h12v24z"/>
+                </svg>
+        <span v-if="saveable" class="leading-6 text-base font-bold"> Save to my tech list </span>
+        <span v-if="!saveable" class="leading-6 text-base font-bold"> Saved </span>
       </button>
     </div>
   </section>
@@ -114,17 +121,59 @@ export default {
   data() {
     return {
       displayed: false,
-      item: {}
+      saveable: true,
+      item: {},
+      cachedList: [],
 
     }
   },
   mounted() {
+    if (localStorage.getItem('techList')) {
+      try {
+        this.cachedList = JSON.parse(localStorage.getItem('techList'));
+        // console.log(this.cachedList);
+
+      } catch(e) {
+        localStorage.removeItem('techList');
+      }
+    }
+
     this.emitter.on("toggle-modal", (data) => {
       this.displayed = data.displayed;
       this.item = data.item;
+      this.isSaved();
     });
   },
-  methods: {},
+  // updated() {
+  //   this.isSaved();
+  // },
+  methods: {
+    addBlip() {
+      if (!this.item || !this.saveable) {
+        return;
+      }
+      this.cachedList.push(this.item);
+      this.saveCachedList();
+      this.isSaved();
+    },
+    saveCachedList() {
+      const parsed = JSON.stringify(this.cachedList);
+      localStorage.setItem('techList', parsed);
+      this.emitter.emit("update-cached-list");
+    },
+    isSaved() {
+      if (!this.cachedList) {
+        this.saveable = true;
+        return;
+      }
+      for (let i = 0; i < this.cachedList.length; i++) {
+        if (this.cachedList[i].label === this.item.label) {
+          // console.log('cached: ' + this.cachedList[i].label + ' currentItem: ' + this.item.label)
+          this.saveable = false;
+        }
+      }
+    }
+  },
 
 }
 </script>

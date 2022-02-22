@@ -31,7 +31,7 @@
         </p>
       </div>
       <div class="tech-list pb-6">
-        <div v-for="(blip, i) in currentList" :key="i" @click="toggleActive(blip, i)"
+        <div v-for="(blip, i) in cachedList" :key="i" @click="toggleActive(blip, i)"
              :class="(!blip.active) ? 'opacity-40' : ''"
              class="group tech-item bg-mvp-gray-dark my-2 p-3 cursor-pointer hover:bg-mvp-gray-light"
              style="border-radius: 15px">
@@ -39,10 +39,13 @@
             <h3 class="text-2xl font-bold inline-block"> {{ blip.label }} </h3>
             <!--            invisible group-hover:visible-->
             <div class="relative">
-              <div class="hidden text-xs bg-black text-white bg-opacity-80 p-1 absolute -top-7 -left-20 rounded shadow-xl w-32" :id="'tooltip-' + i">
+              <div
+                  class="hidden text-xs bg-black text-white bg-opacity-80 p-1 absolute -top-7 -left-20 rounded shadow-xl w-32"
+                  :id="'tooltip-' + i">
                 Remove from list
               </div>
-              <button class="text-gray-300" :id="'bookmark-' + i" @mouseenter="toggleTooltip(i)" @mouseleave="toggleTooltip(i)">
+              <button class="text-gray-300" :id="'bookmark-' + i" @mouseenter="toggleTooltip(i)"
+                      @mouseleave="toggleTooltip(i)" @click="removeBlip(i)">
                 <svg class="inline-block text-white hover:text-gray-200" width="24" height="24"
                      xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
                      clip-rule="evenodd" preserveAspectRatio="none" viewBox="0 0 24 24">
@@ -92,8 +95,9 @@ export default {
   props: {},
   data() {
     return {
-      displayed: true,
-      currentList: [
+      displayed: false,
+      cachedList: [],
+      hardCodedList: [
         {
           "quadrant": 3,
           "ring": 2,
@@ -119,8 +123,14 @@ export default {
     }
   },
   mounted() {
+    this.updateList();
+    // console.log(this.cachedList);
+
     this.emitter.on("toggle-tech-list-modal", (data) => {
       this.displayed = data.displayed;
+    });
+    this.emitter.on("update-cached-list", () => {
+      this.updateList();
     });
   },
   methods: {
@@ -147,6 +157,34 @@ export default {
     },
     toggleTooltip(i) {
       document.querySelector('#tooltip-' + i).classList.toggle("hidden");
+    },
+    removeBlip(i) {
+      this.cachedList.splice(i, 1);
+      this.saveCachedList();
+    },
+    saveCachedList() {
+      const parsed = JSON.stringify(this.cachedList);
+      localStorage.setItem('techList', parsed);
+    },
+    isSaved() {
+      if (!this.cachedList) {
+        return;
+      }
+      for (let i = 0; i < this.cachedList.length; i++) {
+        if (this.cachedList[i].label === this.item.label) {
+          this.saveable = false;
+        }
+      }
+    },
+    updateList() {
+      if (localStorage.getItem('techList')) {
+      try {
+        this.cachedList = JSON.parse(localStorage.getItem('techList'));
+        console.log(this.cachedList);
+      } catch (e) {
+        localStorage.removeItem('techList');
+      }
+    }
     }
   },
 
