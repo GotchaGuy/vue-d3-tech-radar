@@ -14,27 +14,27 @@
         <div class="lg:inline-block hidden display-type-container pb-5 w-full">
           <div class="display-type-inner bg-mvp-gray-light rounded-full inline-block">
             <button @click="openTab = 'Radar'" :class="{'filter-button-active': openTab === 'Radar'}"
-                    class="flex align-middle justify-center items-center py-1 px-1 w-32 button filter-button rounded-full border-2 border-transparent hover:border-white">
-              <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-                <circle fill-opacity="0" cx="15" cy="15" r="13" stroke="currentColor" stroke-width="2"/>
-                <circle fill-opacity="0" cx="15" cy="15" r="9" stroke="currentColor" stroke-width="2"/>
-                <circle fill-opacity="0" cx="15" cy="15" r="5" stroke="currentColor"  stroke-width="2"/>
-                <line x1="0" y1="15" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
+                    class="flex align-middle justify-center items-center py-1 px-1 lg:w-24 xl:w-32 button filter-button rounded-full border-2 border-transparent hover:border-white">
+              <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                <circle fill-opacity="0" cx="14" cy="14" r="13" stroke="currentColor" stroke-width="2"/>
+                <circle fill-opacity="0" cx="14" cy="14" r="9" stroke="currentColor" stroke-width="2"/>
+                <circle fill-opacity="0" cx="14" cy="14" r="5" stroke="currentColor"  stroke-width="2"/>
+                <line x1="0" y1="14" x2="14" y2="14" stroke="currentColor" stroke-width="2"/>
               </svg>
-              <span class="leading-6 text-base font-bold"> Radar </span>
+              <span class="lg:hidden xl:inline-block leading-6 text-base font-bold pl-1"> Radar </span>
             </button>
             <button @click="openTab = 'Grid'" :class="{'filter-button-active': openTab === 'Grid'}"
-                    class="flex align-middle justify-center items-center py-1 px-1 w-32 button filter-button rounded-full  border-2 border-transparent hover:border-white">
-              <svg class="inline-block align-middle" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 -4 30 30">
+                    class="flex align-middle justify-center items-center py-1 px-1 lg:w-24 xl:w-32 button filter-button rounded-full  border-2 border-transparent hover:border-white">
+              <svg class="inline-block align-middle" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 -2 28 28">
                 <path fill="currentColor" d="M6 6h-6v-6h6v6zm9-6h-6v6h6v-6zm9 0h-6v6h6v-6zm-18 9h-6v6h6v-6zm9 0h-6v6h6v-6zm9 0h-6v6h6v-6zm-18 9h-6v6h6v-6zm9 0h-6v6h6v-6zm9 0h-6v6h6v-6z"/></svg>
-              <span class="leading-6 text-base font-bold mt-1"> Grid </span>
+              <span class="lg:hidden xl:inline-block leading-6 text-base font-bold pl-1"> Grid </span>
             </button>
             <button @click="openTab = 'Quadrant'" :class="{'filter-button-active': openTab === 'Quadrant'}"
-                    class="flex align-middle justify-center items-center py-1 px-1 w-40 button filter-button rounded-full  border-2 border-transparent hover:border-white">
+                    class="flex align-middle justify-center items-center py-1 px-1 lg:w-24 xl:w-40 button filter-button rounded-full  border-2 border-transparent hover:border-white">
               <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
                 <path stroke="currentColor" stroke-width="2" fill="none" xmlns="http://www.w3.org/2000/svg" d="M0.50799,27.5C0.11906,14.5673,13.95048,-0.53623,27.50001,0.55584v26.94416h-28.99202Z"/>
               </svg>
-              <span class="leading-6 text-base font-bold"> Quadrant </span>
+              <span class="lg:hidden xl:inline-block leading-6 text-base font-bold pl-1"> Quadrant </span>
             </button>
           </div>
         </div>
