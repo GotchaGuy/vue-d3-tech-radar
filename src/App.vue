@@ -53,7 +53,6 @@
               <circle class="text-mvp-green opacity-60" cx="50" cy="50" r="40" fill="currentColor"/>
               <circle class="text-mvp-green opacity-80" cx="50" cy="50" r="30" fill="currentColor"/>
               <circle class="text-mvp-green" cx="50" cy="50" r="20" fill="currentColor"/>
-              Sorry, your browser does not support inline SVG.
             </svg>
           </button>
           <button @click="toggleMobileGridModal('Platforms')"
@@ -63,7 +62,6 @@
               <circle class="text-mvp-blue opacity-60" cx="0" cy="50" r="40" fill="currentColor"/>
               <circle class="text-mvp-blue opacity-80" cx="0" cy="50" r="30" fill="currentColor"/>
               <circle class="text-mvp-blue" cx="0" cy="50" r="20" fill="currentColor"/>
-              Sorry, your browser does not support inline SVG.
             </svg>
             <span class="absolute bottom-3 right-3 leading-6 text-base font-normal"> Platforms </span>
           </button>
@@ -76,7 +74,6 @@
               <circle class="text-mvp-orange opacity-60" cx="50" cy="0" r="40" fill="currentColor"/>
               <circle class="text-mvp-orange opacity-80" cx="50" cy="0" r="30" fill="currentColor"/>
               <circle class="text-mvp-orange" cx="50" cy="0" r="20" fill="currentColor"/>
-              Sorry, your browser does not support inline SVG.
             </svg>
           </button>
           <button @click="toggleMobileGridModal('Languages & Frameworks')"
@@ -86,7 +83,6 @@
               <circle class="text-mvp-purple opacity-60" cx="0" cy="0" r="40" fill="currentColor"/>
               <circle class="text-mvp-purple opacity-80" cx="0" cy="0" r="30" fill="currentColor"/>
               <circle class="text-mvp-purple" cx="0" cy="0" r="20" fill="currentColor"/>
-              Sorry, your browser does not support inline SVG.
             </svg>
             <span class="absolute bottom-3 right-3 text-right leading-6 text-base font-normal w-32"> Languages & Frameworks </span>
           </button>
@@ -129,7 +125,6 @@
                 <svg width="16" height="16">
                   <rect class="inline-block text-white" x="1" y="4" transform="rotate(45, 10, 10)" width="12"
                         height="12" rx="1" ry="1" fill="currentColor"/>
-                  Sorry, your browser does not support inline SVG.
                 </svg>
               </div>
             </li>
@@ -154,7 +149,6 @@
               <div class="category-color rounded-full pr-1 text-white">
                 <svg height="16" width="16">
                   <circle class="text-white" cx="8" cy="8" r="8" fill="currentColor"/>
-                  Sorry, your browser does not support inline SVG.
                 </svg>
               </div>
             </li>
@@ -208,6 +202,8 @@
 </template>
 
 <script>
+// import Landing from './Landing.vue'
+
 import Radar from './components/RadarComponent.vue'
 import Grid from './components/GridComponent.vue'
 import Quadrant from './components/QuadrantComponent.vue'
@@ -220,6 +216,8 @@ import MobileGridModal from './components/MobileGridModalComponent.vue'
 export default {
   name: 'App',
   components: {
+    // Landing,
+
     Radar,
     Grid,
     Quadrant,
